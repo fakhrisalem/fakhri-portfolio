@@ -9,7 +9,7 @@ const projectsData = [
     id: 1,
     title: "Flower and Plant E-commerce Website",
     description: "A React.js e-commerce application with dynamic product layouts, smooth navigation, and engaging UI experience. Features product browsing, shopping cart, and checkout functionality.",
-    image: "/ecommerce-platform.png",
+    image: "/fl.jpg",
     features: [
       "Dynamic Product Listings",
       "Shopping Cart",
