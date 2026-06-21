@@ -78,7 +78,7 @@ function About() {
             <div className="relative rounded-2xl overflow-hidden border-2 border-[#D4AF37] shadow-2xl">
               <div className="absolute inset-0 bg-gradient-to-br from-[#D4AF37] to-transparent opacity-10 z-10" />
               <img
-    src="/profile.jpg"
+    src="profile.jpg"
     alt="Mona Fakhri"
     width={400}
     height={500}

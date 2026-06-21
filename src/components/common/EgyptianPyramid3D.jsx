@@ -10,10 +10,10 @@ import { useState, useEffect } from "react";
  */
 
 const photos = [
-  { src: "/image/PY.webp",  alt: "Pyramids of Giza"    },
-  { src: "/image/CAI.webp", alt: "Cairo University"     },
-  { src: "/image/MS.jfif",  alt: "Istanbul Obelisk"     },
-  { src: "/image/LA.jpg",   alt: "Laptop"               },
+  { src: "image/PY.webp",  alt: "Pyramids of Giza"    },
+  { src: "image/CAI.webp", alt: "Cairo University"     },
+  { src: "image/MS.jfif",  alt: "Istanbul Obelisk"     },
+  { src: "image/LA.jpg",   alt: "Laptop"               },
 ];
 
 // Positions on the circle (in degrees): top, right, bottom, left

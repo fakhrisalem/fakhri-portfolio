@@ -6,22 +6,22 @@ const dreamsData = [
   {
     title: "Work at Google",
     description: "One of my biggest professional dreams is to join Google — a company that represents innovation, excellence, and global impact. I aspire to contribute to world-class products, collaborate with brilliant minds, and grow in an environment that pushes the boundaries of technology every single day.",
-    image: "/image/google.png"
+    image: "image/google.png"
   },
   {
     title: "Perform Hajj & Umrah",
     description: "A deeply personal and spiritual dream — to stand before the Kaaba in Mecca and experience the profound peace of Hajj and Umrah. This journey represents faith, gratitude, and a meaningful connection to something far greater than myself. It is a dream I hold close to my heart.",
-    image: "/image/pilgrimage.jpg"
+    image: "image/pilgrimage.jpg"
   },
   {
     title: "Give Back Through Charity",
     description: "I believe that true success is measured by how much we give back. I dream of actively contributing to charitable causes — whether through volunteering, organizing community initiatives, or using my tech skills to support non-profits and organizations that make a real difference in people's lives.",
-    image: "/image/charitable works.jpg"
+    image: "image/charitable works.jpg"
   },
   {
     title: "Travel the World",
     description: "Travel opens the mind and feeds the soul. I dream of exploring different cultures, cities, and landscapes across the globe — from the historic streets of Amsterdam to the vibrant corners of the world. Every journey is a new perspective, a new story, and a new source of inspiration.",
-    image: "/image/traval.jpg"
+    image: "image/traval.jpg"
   }
 ];
 function Dreams() {

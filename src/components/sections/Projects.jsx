@@ -29,7 +29,7 @@ const projectsData = [
     id: 2,
     title: "HRX — Human Resources Management System",
     description: "HRX is a full-stack B2B SaaS platform designed to digitize and streamline all HR operations for companies in the MENA region. It replaces scattered spreadsheets and manual processes with a unified smart dashboard covering employee management, attendance tracking, payroll processing, leave requests, recruitment pipelines, and AI-driven performance evaluation through its built-in Performix engine. Built with React + TypeScript on the frontend and Node.js + Express on the backend, with MongoDB Atlas as the cloud database and JWT-based authentication for secure role-based access across four user types: Admin, HR Manager, Manager, and Employee.",
-    image: "/image/hr.png",
+    image: "image/hr.png",
     features: [
       "Employee Management",
       "Attendance & Departure",
@@ -49,7 +49,7 @@ const projectsData = [
     id: 3,
     title: "Children's Products Website",
     description: "Bootstrap-based user interface for browsing and shopping children's products. Built with focus on mobile-first design and usability for both parents and kids.",
-    image: "/image/ch.webp",
+    image: "image/ch.webp",
     features: [
       "Product Browse",
       "Mobile-First Design",
@@ -70,7 +70,7 @@ const projectsData = [
     id: 5,
     title: "Restaurant Website",
     description: "Responsive restaurant website built with HTML, CSS, and JavaScript. Optimized for fast loading and full cross-browser support with modern design aesthetics.",
-    image: "/image/re.png",
+    image: "image/re.png",
     features: [
       "Menu Display",
       "Responsive Design",

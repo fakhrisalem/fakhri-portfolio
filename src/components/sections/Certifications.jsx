@@ -9,7 +9,7 @@ const certificationsData = [
     provider: "Meta — via Coursera (9 Courses)",
     date: "May 11, 2026",
     description: "Professional Certificate covering the full front-end stack: HTML, CSS, JavaScript, React Basics, Advanced React, Version Control, UX/UI Principles, Front-End Capstone, and Coding Interview Preparation.",
-    image: "/image/1.jpg",
+    image: "image/1.jpg",
     skills: ["React.js", "JavaScript", "HTML5", "CSS3", "UX/UI Design", "Version Control"]
   },
   {
@@ -18,7 +18,7 @@ const certificationsData = [
     provider: "Meta — via Coursera",
     date: "May 2, 2026",
     description: "Course covering Git fundamentals, branching strategies, collaborative workflows, and best practices for version control in modern software development.",
-    image: "/image/2.jpg",
+    image: "image/2.jpg",
     skills: ["Git", "GitHub", "Branching", "Collaboration", "Version Control"]
   },
   {
@@ -27,7 +27,7 @@ const certificationsData = [
     provider: "IBM — via Coursera",
     date: "Oct 16, 2024",
     description: "Foundations of software engineering including SDLC, agile methodologies, cloud computing basics, and hands-on introduction to programming concepts and tools.",
-    image: "/image/3.jpg",
+    image: "image/3.jpg",
     skills: ["SDLC", "Agile", "Cloud Computing", "Software Design", "Problem Solving"]
   },
   {
@@ -36,7 +36,7 @@ const certificationsData = [
     provider: "Meta — via Coursera",
     date: "Aug 30, 2024",
     description: "Deep dive into advanced React concepts including custom hooks, performance optimization, state management patterns, testing, and building production-ready scalable applications.",
-    image: "/image/4.jpg",
+    image: "image/4.jpg",
     skills: ["React Hooks", "Performance", "State Management", "Testing", "Scalability"]
   },
   {
@@ -45,7 +45,7 @@ const certificationsData = [
     provider: "Meta — via Coursera",
     date: "Aug 30, 2024",
     description: "Introduction to React.js fundamentals including components, props, state, event handling, and building interactive user interfaces with the React library.",
-    image: "/image/5.jpg",
+    image: "image/5.jpg",
     skills: ["React.js", "Components", "Props", "State", "JSX", "Event Handling"]
   },
   {
@@ -54,7 +54,7 @@ const certificationsData = [
     provider: "Meta — via Coursera",
     date: "Jul 12, 2024",
     description: "Comprehensive JavaScript course covering core programming concepts, ES6+ features, functional programming, object-oriented patterns, and DOM manipulation.",
-    image: "/image/6.jpg",
+    image: "image/6.jpg",
     skills: ["JavaScript", "ES6+", "OOP", "Functional Programming", "DOM"]
   },
   {
@@ -63,7 +63,7 @@ const certificationsData = [
     provider: "IBM — via Coursera",
     date: "Jun 25, 2024",
     description: "Practical introduction to web development fundamentals, building responsive pages with HTML structure, CSS styling, and JavaScript interactivity.",
-    image: "/image/7.jpg",
+    image: "image/7.jpg",
     skills: ["HTML", "CSS", "JavaScript", "Responsive Design", "Web Development"]
   },
   {
@@ -72,7 +72,7 @@ const certificationsData = [
     provider: "University of Michigan — via Coursera",
     date: "May 18, 2026",
     description: "Focused course on making web pages dynamic and interactive using JavaScript, covering DOM events, animations, and creating engaging user experiences.",
-    image: "/image/8.jpg",
+    image: "image/8.jpg",
     skills: ["JavaScript", "DOM Events", "Animations", "Interactivity", "UX"]
   }
 ];
