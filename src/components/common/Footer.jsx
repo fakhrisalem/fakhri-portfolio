@@ -2,10 +2,10 @@
 import { motion } from "framer-motion";
 import { Code2, Heart, Mail, Send } from "lucide-react";
 const socialLinks = [
-  { icon: Code2, href: "https://github.com", label: "GitHub" },
-  { icon: Heart, href: "https://linkedin.com", label: "LinkedIn" },
-  { icon: Mail, href: "mailto:alex@example.com", label: "Email" },
-  { icon: Send, href: "https://wa.me", label: "WhatsApp" }
+  { icon: Code2, href: "https://github.com/fakhrisalem", label: "GitHub" },
+  { icon: Heart, href: "https://www.linkedin.com/in/monafakhri", label: "LinkedIn" },
+  { icon: Mail, href: "monafakhri50@gmail.com", label: "Email" },
+  { icon: Send, href: "https://wa.me/01154926990", label: "WhatsApp" }
 ];
 function Footer() {
   return <footer className="bg-[#0a0e27] border-t border-[rgba(212,175,55,0.1)] py-12">

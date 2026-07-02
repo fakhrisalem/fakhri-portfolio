@@ -163,10 +163,10 @@ function Hero() {
             className="flex gap-4 pt-4"
           >
             {[
-              { icon: Code2,  href: "https://github.com/MonaFakhri",          label: "GitHub"    },
-              { icon: Heart,  href: "https://linkedin.com/in/mona-fakhri",    label: "LinkedIn"  },
-              { icon: Mail,   href: "mailto:monafakhri50@gmail.com",           label: "Email"     },
-              { icon: Send,   href: "https://wa.me/201154926990",              label: "WhatsApp"  },
+              { icon: Code2,  href: "https://github.com/fakhrisalem",          label: "GitHub"    },
+              { icon: Heart,  href: "https://www.linkedin.com/in/monafakhri",    label: "LinkedIn"  },
+              { icon: Mail,   href: "monafakhri50@gmail.com",           label: "Email"     },
+              { icon: Send,   href: "https://wa.me/01154926990",              label: "WhatsApp"  },
             ].map((social) => {
               const Icon = social.icon;
               return (
