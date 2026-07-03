@@ -67,25 +67,25 @@ const projectsData = [
   },
  
   {
-    id: 5,
-    title: "Restaurant Website",
-    description: "Responsive restaurant website built with HTML, CSS, and JavaScript. Optimized for fast loading and full cross-browser support with modern design aesthetics.",
-    image: "image/re.png",
-    features: [
-      "Menu Display",
-      "Responsive Design",
-      "Fast Loading",
-      "Cross-Browser Support",
-      "Contact Form",
-      "Location Integration",
-      "Mobile-Friendly",
-      "Image Optimization"
-    ],
-    tech: ["HTML5", "CSS3", "JavaScript", "Responsive Design", "SEO Optimized"],
-    github: "https://github.com/MonaFakhri/restaurant-website",
-    live: "https://restaurant-website-demo.app",
-    featured: false
-  }
+  id: 5,
+  title: "Premium E-Commerce Website",
+  description: "Full-featured e-commerce web application built with React and TypeScript. Includes product filtering, shopping cart, wishlist, user authentication, multi-language support, and dark/light mode — fully responsive across all devices.",
+  image: "image/Shoes.JPG",
+  features: [
+    "Product Filtering & Search",
+    "Shopping Cart",
+    "Wishlist",
+    "User Authentication",
+    "Arabic & English Support",
+    "Dark / Light Mode",
+    "Responsive Design",
+    "Smooth Animations"
+  ],
+  tech: ["React", "TypeScript", "Tailwind CSS", "Framer Motion", "GSAP", "Zustand", "Three.js", "Vite"],
+  github: "https://github.com/fakhrisalem/-E-Commerce-Website",
+  live: "https://fakhrisalem.github.io/-E-Commerce-Website/",
+  featured: false
+}
 ];
 function Projects() {
   return <section id="projects" className="py-20 relative z-10">
