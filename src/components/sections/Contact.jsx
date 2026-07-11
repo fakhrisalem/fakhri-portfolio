@@ -28,6 +28,12 @@ function Contact() {
       setSubmitted(false);
     }, 3e3);
   };
+  const handleDownloadCV = () => {
+    const link = document.createElement("a");
+    link.href = "/image/MonaFakhriSalem_CV_G.pdf";
+    link.download = "MonaFakhriSalem_CV_G.pdf";
+    link.click();
+  };
   return <section id="contact" className="py-20 relative z-10">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         {
@@ -153,7 +159,7 @@ function Contact() {
             <PremiumButton
     variant="gold"
     size="lg"
-    onClick={() => window.open("/resume.pdf")}
+    onClick={handleDownloadCV}
     className="w-full justify-center"
   >
               <Download size={20} />
