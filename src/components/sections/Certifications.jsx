@@ -68,6 +68,24 @@ const certificationsData = [
   },
   {
     id: 8,
+    title: "Foundations of Web Development: CSS, Bootstrap, JS, React",
+    provider: "Proper Dot Institute — via Udemy",
+    date: "Sept 13, 2025",
+    description: "Completion certificate covering modern web development fundamentals with practical training in CSS, Bootstrap responsive layouts, JavaScript interactivity, and core React patterns.",
+    image: "image/10.png",
+    skills: ["CSS", "Bootstrap", "JavaScript", "React", "Responsive Layouts"]
+  },
+  {
+    id: 9,
+    title: "Web Designer — Digital Egypt Youth Program",
+    provider: "NTI / Digital Egypt Youth",
+    date: "Oct 10, 2024",
+    description: "Certificate for successful completion of the Digital Egypt Youth program with a focus on web design, UI principles, freelancing skills, and digital communication tools.",
+    image: "image/9.jpg",
+    skills: ["Web Design", "UI/UX", "Freelancing", "Digital Communication", "Project Delivery"]
+  },
+  {
+    id: 10,
     title: "Interactivity with JavaScript",
     provider: "University of Michigan — via Coursera",
     date: "May 18, 2026",
@@ -138,6 +156,9 @@ function Certifications() {
 
                   {/* Certificate Info */}
                   <div className="p-6 flex flex-col justify-between flex-1">
+                    <div className="absolute top-4 right-4 text-[#D4AF37]/80 text-sm font-bold tracking-[0.2em] uppercase">
+                      {cert.id}
+                    </div>
                     {/* Provider & Date */}
                     <div className="mb-4">
                       <div className="flex items-center gap-2 mb-2 text-foreground-muted">
