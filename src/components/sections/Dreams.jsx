@@ -9,9 +9,9 @@ const dreamsData = [
     image: "image/google.png"
   },
   {
-    title: "Perform Hajj & Umrah",
-    description: "A deeply personal and spiritual dream — to stand before the Kaaba in Mecca and experience the profound peace of Hajj and Umrah. This journey represents faith, gratitude, and a meaningful connection to something far greater than myself. It is a dream I hold close to my heart.",
-    image: "image/pilgrimage.jpg"
+    title: "Give Back Through Charity",
+    description: "I believe that true success is measured by how much we give back. I dream of actively contributing to charitable causes — whether through volunteering, organizing community initiatives, or using my tech skills to support non-profits and organizations that make a real difference in people's lives.",
+    image: "image/charitable works.jpg"
   },
   {
     title: "Give Back Through Charity",
