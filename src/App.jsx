@@ -1,7 +1,9 @@
+import { useState } from 'react'
 import { Navigation } from '@/components/common/Navigation'
 import { FloatingParticles } from '@/components/common/FloatingParticles'
 import { BackToTop } from '@/components/common/BackToTop'
 import { Footer } from '@/components/common/Footer'
+import { WelcomeScreen } from '@/components/common/WelcomeScreen'
 import { Hero } from '@/components/sections/Hero'
 import { About } from '@/components/sections/About'
 import { Education } from '@/components/sections/Education'
@@ -14,8 +16,13 @@ import { Certifications } from '@/components/sections/Certifications'
 import { Contact } from '@/components/sections/Contact'
 
 function App() {
+  const [entered, setEntered] = useState(false)
+
   return (
     <main className="relative w-full bg-black overflow-hidden">
+      {/* Welcome / Splash Screen */}
+      <WelcomeScreen show={!entered} onEnter={() => setEntered(true)} />
+
       {/* Floating Particles Background */}
       <FloatingParticles />
 
