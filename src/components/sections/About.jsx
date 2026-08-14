@@ -16,7 +16,7 @@ function About() {
     viewport={{ once: true }}
     className="mb-16"
   >
-          <h2 className="text-5xl md:text-6xl font-bold mb-4">
+          <h2 className="text-4xl sm:text-5xl md:text-6xl font-bold mb-4">
             <span className="text-white">About</span>{" "}
             <span className="text-[#D4AF37]">Me</span>
           </h2>

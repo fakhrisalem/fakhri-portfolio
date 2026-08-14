@@ -46,7 +46,7 @@ function Contact() {
     viewport={{ once: true }}
     className="mb-16 text-center"
   >
-          <h2 className="text-5xl md:text-6xl font-bold mb-4">
+          <h2 className="text-4xl sm:text-5xl md:text-6xl font-bold mb-4">
             <span className="text-white">Let&apos;s Work</span>{" "}
             <span className="text-[#D4AF37]">Together</span>
           </h2>
@@ -177,7 +177,7 @@ function Contact() {
     viewport={{ once: true }}
     className="lg:col-span-2"
   >
-            <GlassCard className="p-8">
+            <GlassCard className="p-5 sm:p-8">
               {submitted ? <motion.div
     initial={{ opacity: 0, scale: 0.9 }}
     animate={{ opacity: 1, scale: 1 }}

@@ -4,9 +4,11 @@ import { motion } from "framer-motion";
 import { Menu, X } from "lucide-react";
 const navItems = [
   { label: "About", href: "#about" },
+  { label: "Education", href: "#education" },
   { label: "Experience", href: "#experience" },
   { label: "Projects", href: "#projects" },
   { label: "Skills", href: "#skills" },
+  { label: "Leadership", href: "#leadership" },
   { label: "Dreams", href: "#dreams" },
   { label: "Certifications", href: "#certifications" },
   { label: "Contact", href: "#contact" }
@@ -18,7 +20,7 @@ function Navigation() {
   useEffect(() => {
     const handleScroll = () => {
       setScrolled(window.scrollY > 50);
-      const sections = ["hero", "about", "experience", "projects", "skills", "dreams", "certifications", "contact"];
+      const sections = ["hero", "about", "education", "experience", "projects", "skills", "leadership", "dreams", "certifications", "contact"];
       for (const section of sections) {
         const element = document.getElementById(section);
         if (element) {
@@ -38,7 +40,14 @@ function Navigation() {
     const targetId = href.replace("#", "");
     const element = document.getElementById(targetId);
     if (element) {
-      element.scrollIntoView({ behavior: "smooth" });
+      const headerOffset = 90;
+      const elementPosition = element.getBoundingClientRect().top + window.pageYOffset;
+      const offsetPosition = elementPosition - headerOffset;
+
+      window.scrollTo({
+        top: offsetPosition,
+        behavior: "smooth"
+      });
       setIsOpen(false);
     }
   };
@@ -102,13 +111,13 @@ function Navigation() {
     transition={{ duration: 0.3 }}
     className="md:hidden overflow-hidden"
   >
-          <div className="px-2 pt-2 pb-3 space-y-1">
+          <div className="mt-2 rounded-2xl border border-[rgba(212,175,55,0.18)] bg-[rgba(10,10,12,0.88)] backdrop-blur-xl shadow-[0_12px_30px_rgba(0,0,0,0.45)] px-2 pt-2 pb-3 space-y-1">
             {navItems.map((item) => <motion.a
     key={item.href}
     href={item.href}
     onClick={(e) => handleNavClick(e, item.href)}
-    whileHover={{ x: 10 }}
-    className={`block px-3 py-2 rounded-md text-base font-medium transition-colors ${activeSection === item.href.replace("#", "") ? "text-[#D4AF37] bg-[rgba(212,175,55,0.1)]" : "text-foreground-muted hover:text-[#D4AF37]"}`}
+    whileHover={{ x: 8 }}
+    className={`block px-3 py-3 rounded-xl text-base font-medium transition-colors ${activeSection === item.href.replace("#", "") ? "text-[#D4AF37] bg-[rgba(212,175,55,0.12)]" : "text-white hover:text-[#D4AF37] hover:bg-[rgba(212,175,55,0.06)]"}`}
   >
                 {item.label}
               </motion.a>)}

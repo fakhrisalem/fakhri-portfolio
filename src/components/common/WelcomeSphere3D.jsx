@@ -37,10 +37,24 @@ const points = fibonacciSphere(photos.length);
 export function WelcomeSphere3D({ size = 560 }) {
   const [rotY, setRotY] = useState(0);
   const [rotX, setRotX] = useState(-8);
+  const [responsiveSize, setResponsiveSize] = useState(size);
   const dragging = useRef(false);
   const last = useRef({ x: 0, y: 0 });
   const velocity = useRef({ x: 0.12, y: 0 });
   const frame = useRef();
+
+  useEffect(() => {
+    const updateSize = () => {
+      const width = window.innerWidth;
+      if (width < 480) setResponsiveSize(Math.min(size, 220));
+      else if (width < 768) setResponsiveSize(Math.min(size, 300));
+      else setResponsiveSize(Math.min(size, 420));
+    };
+
+    updateSize();
+    window.addEventListener('resize', updateSize);
+    return () => window.removeEventListener('resize', updateSize);
+  }, [size]);
 
   useEffect(() => {
     const tick = () => {
@@ -76,8 +90,8 @@ export function WelcomeSphere3D({ size = 560 }) {
       onPointerUp={endDrag}
       onPointerLeave={endDrag}
       style={{
-        width: size,
-        height: size,
+        width: responsiveSize,
+        height: responsiveSize,
         perspective: 1000,
         touchAction: "none",
         cursor: "grab",

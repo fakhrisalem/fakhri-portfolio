@@ -4,6 +4,24 @@ import { GlassCard } from "@/components/ui/GlassCard";
 import { Award, Calendar, Building2 } from "lucide-react";
 const certificationsData = [
   {
+    id: 11,
+    title: "Python for Data Science, AI & Development",
+    provider: "IBM — via Coursera",
+    date: "Jun 30, 2024",
+    description: "Comprehensive IBM certificate covering Python programming for data science, AI, and application development with practical hands-on learning in data analysis and automation.",
+    image: "image/11.jpeg",
+    skills: ["Python", "Data Science", "AI", "Machine Learning", "Pandas", "Data Analysis"]
+  },
+  {
+    id: 14,
+    title: "The Complete JavaScript Course 2025: From Zero to Expert!",
+    provider: "Udemy",
+    date: "Aug 13, 2026",
+    description: "Complete JavaScript learning journey covering fundamentals, modern ES6+, DOM manipulation, asynchronous programming, and practical real-world project development.",
+    image: "image/14.jpg",
+    skills: ["JavaScript", "ES6+", "DOM", "Async", "Projects", "Web Development"]
+  },
+  {
     id: 1,
     title: "Meta Front-End Developer",
     provider: "Meta — via Coursera (9 Courses)",
@@ -13,15 +31,6 @@ const certificationsData = [
     skills: ["React.js", "JavaScript", "HTML5", "CSS3", "UX/UI Design", "Version Control"]
   },
   {
-    id: 2,
-    title: "Version Control",
-    provider: "Meta — via Coursera",
-    date: "May 2, 2026",
-    description: "Course covering Git fundamentals, branching strategies, collaborative workflows, and best practices for version control in modern software development.",
-    image: "image/2.jpg",
-    skills: ["Git", "GitHub", "Branching", "Collaboration", "Version Control"]
-  },
-  {
     id: 3,
     title: "Introduction to Software Engineering",
     provider: "IBM — via Coursera",
@@ -29,33 +38,6 @@ const certificationsData = [
     description: "Foundations of software engineering including SDLC, agile methodologies, cloud computing basics, and hands-on introduction to programming concepts and tools.",
     image: "image/3.jpg",
     skills: ["SDLC", "Agile", "Cloud Computing", "Software Design", "Problem Solving"]
-  },
-  {
-    id: 4,
-    title: "Advanced React",
-    provider: "Meta — via Coursera",
-    date: "Aug 30, 2024",
-    description: "Deep dive into advanced React concepts including custom hooks, performance optimization, state management patterns, testing, and building production-ready scalable applications.",
-    image: "image/4.jpg",
-    skills: ["React Hooks", "Performance", "State Management", "Testing", "Scalability"]
-  },
-  {
-    id: 5,
-    title: "React Basics",
-    provider: "Meta — via Coursera",
-    date: "Aug 30, 2024",
-    description: "Introduction to React.js fundamentals including components, props, state, event handling, and building interactive user interfaces with the React library.",
-    image: "image/5.jpg",
-    skills: ["React.js", "Components", "Props", "State", "JSX", "Event Handling"]
-  },
-  {
-    id: 6,
-    title: "Programming with JavaScript",
-    provider: "Meta — via Coursera",
-    date: "Jul 12, 2024",
-    description: "Comprehensive JavaScript course covering core programming concepts, ES6+ features, functional programming, object-oriented patterns, and DOM manipulation.",
-    image: "image/6.jpg",
-    skills: ["JavaScript", "ES6+", "OOP", "Functional Programming", "DOM"]
   },
   {
     id: 7,
@@ -92,6 +74,24 @@ const certificationsData = [
     description: "Focused course on making web pages dynamic and interactive using JavaScript, covering DOM events, animations, and creating engaging user experiences.",
     image: "image/8.jpg",
     skills: ["JavaScript", "DOM Events", "Animations", "Interactivity", "UX"]
+  },
+  {
+    id: 12,
+    title: "Developing Front-End Apps with React",
+    provider: "IBM — via Coursera",
+    date: "Sep 1, 2024",
+    description: "Hands-on learning path focused on building modern front-end applications with React, component architecture, state management, and responsive UI development.",
+    image: "image/12.jpeg",
+    skills: ["React", "Front-End", "Components", "State Management", "UI Development", "JavaScript"]
+  },
+  {
+    id: 13,
+    title: "Developing Back-End Apps with Node.js and Express",
+    provider: "IBM — via Coursera",
+    date: "Aug 7, 2026",
+    description: "Course focused on server-side development with Node.js and Express, covering APIs, routing, middleware, authentication basics, and backend application architecture.",
+    image: "image/13.png",
+    skills: ["Node.js", "Express", "REST APIs", "Back-End", "Middleware", "Server-side Development"]
   }
 ];
 function Certifications() {

@@ -50,7 +50,7 @@ function Skills() {
     viewport={{ once: true }}
     className="mb-16"
   >
-          <h2 className="text-5xl md:text-6xl font-bold mb-4">
+          <h2 className="text-4xl sm:text-5xl md:text-6xl font-bold mb-4">
             <span className="text-white">Technical</span>{" "}
             <span className="text-[#D4AF37]">Skills</span>
           </h2>
@@ -68,7 +68,7 @@ function Skills() {
     className="grid grid-cols-1 md:grid-cols-2 gap-8"
   >
           {Object.entries(skillsData).map(([category, skills]) => <motion.div key={category} variants={staggerItem}>
-              <GlassCard className="p-8 h-full">
+              <GlassCard className="p-5 sm:p-8 h-full">
                 <h3 className="text-2xl font-bold text-[#D4AF37] mb-6">
                   {category}
                 </h3>

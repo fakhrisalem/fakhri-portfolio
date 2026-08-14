@@ -39,7 +39,7 @@ const educationData = [
   }
 ];
 function Education() {
-  return <section className="py-20 relative z-10">
+  return <section id="education" className="py-20 relative z-10">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         {
     /* Section Title */
@@ -51,7 +51,7 @@ function Education() {
     viewport={{ once: true }}
     className="mb-16"
   >
-          <h2 className="text-5xl md:text-6xl font-bold mb-4">
+          <h2 className="text-4xl sm:text-5xl md:text-6xl font-bold mb-4">
             <span className="text-white">Education</span>{" "}
             <span className="text-[#D4AF37]">& Certifications</span>
           </h2>
@@ -76,19 +76,19 @@ function Education() {
               {
     /* Timeline connector */
   }
-              {index !== educationData.length - 1 && <div className="absolute left-6 top-24 w-1 h-16 bg-gradient-to-b from-[#D4AF37] to-transparent" />}
+              {index !== educationData.length - 1 && <div className="absolute left-5 md:left-6 top-24 w-1 h-16 bg-gradient-to-b from-[#D4AF37] to-transparent" />}
 
               {
     /* Timeline dot */
   }
-              <div className="absolute left-0 top-8 w-12 h-12 bg-[rgba(212,175,55,0.2)] border-2 border-[#D4AF37] rounded-full flex items-center justify-center">
-                <div className="w-6 h-6 bg-[#D4AF37] rounded-full" />
+              <div className="absolute left-0 top-8 w-10 h-10 md:w-12 md:h-12 bg-[rgba(212,175,55,0.2)] border-2 border-[#D4AF37] rounded-full flex items-center justify-center">
+                <div className="w-4 h-4 md:w-6 md:h-6 bg-[#D4AF37] rounded-full" />
               </div>
 
               {
     /* Content */
   }
-              <GlassCard className="ml-24 p-8 border-l-4 border-[#D4AF37]">
+              <GlassCard className="ml-0 md:ml-24 p-4 sm:p-6 md:p-8 border-l-4 border-[#D4AF37]">
                 <div className="flex flex-col md:flex-row md:justify-between md:items-start gap-4 mb-4">
                   <div>
                     <h3 className="text-2xl font-bold text-white">{edu.degree}</h3>

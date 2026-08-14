@@ -46,7 +46,7 @@ const leadershipData = [
   }
 ];
 function Leadership() {
-  return <section className="py-20 relative z-10">
+  return <section id="leadership" className="py-20 relative z-10">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         {
     /* Section Title */
@@ -58,7 +58,7 @@ function Leadership() {
     viewport={{ once: true }}
     className="mb-16"
   >
-          <h2 className="text-5xl md:text-6xl font-bold mb-4">
+          <h2 className="text-4xl sm:text-5xl md:text-6xl font-bold mb-4">
             <span className="text-white">Leadership</span>{" "}
             <span className="text-[#D4AF37]">& Activities</span>
           </h2>
@@ -78,7 +78,7 @@ function Leadership() {
           {leadershipData.map((item, index) => {
     const Icon = item.icon;
     return <motion.div key={index} variants={staggerItem}>
-                <GlassCard className="p-8 h-full border-t-2 border-[#D4AF37]">
+                <GlassCard className="p-5 sm:p-8 h-full border-t-2 border-[#D4AF37]">
                   <div className="flex items-center gap-4 mb-6">
                     <div className="w-14 h-14 rounded-lg bg-[rgba(212,175,55,0.1)] flex items-center justify-center">
                       <Icon size={28} className="text-[#D4AF37]" />

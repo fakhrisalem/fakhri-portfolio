@@ -35,7 +35,7 @@ function Dreams() {
     viewport={{ once: true }}
     className="mb-16 text-center"
   >
-          <h2 className="text-5xl md:text-6xl font-bold mb-4">
+          <h2 className="text-4xl sm:text-5xl md:text-6xl font-bold mb-4">
             <span className="text-white">My</span>{" "}
             <span className="text-[#D4AF37]">Dreams & Vision</span>
           </h2>
@@ -66,7 +66,7 @@ function Dreams() {
                 </div>
 
                 {/* Dream Content */}
-                <div className="p-8">
+                <div className="p-5 sm:p-8">
                   {/* Title */}
                   <h3 className="text-2xl font-bold text-white mb-4">{dream.title}</h3>
 

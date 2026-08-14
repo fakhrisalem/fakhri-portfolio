@@ -72,7 +72,7 @@ export function WelcomeScreen({ show, onEnter }) {
                 className="text-4xl md:text-6xl lg:text-7xl font-extrabold tracking-[-0.04em] leading-[1.02]"
                 style={{ fontFamily: "'Poppins', sans-serif" }}
                 delay={0.35}
-                colors={["#D4AF37", "#F3E9D2", "#E6D0A3", "#B58B2B", "#6B5330"]}
+                colors={["#4285F4", "#EA4335", "#FBBC05", "#34A853", "#D4AF37", "#F9E6A6", "#9BD1FF", "#C7881B", "#8AB4F8", "#F1A6A6", "#F6D66D", "#7CCB95"]}
               />
               <p className="text-white/50 text-sm md:text-base tracking-wide">
                 Mona Fakhri &nbsp;•&nbsp; Cairo, Egypt
@@ -86,7 +86,7 @@ export function WelcomeScreen({ show, onEnter }) {
                 hidden: {},
                 show: { transition: { staggerChildren: 0.12, delayChildren: 0.7 } },
               }}
-              className="flex items-center justify-center gap-4 md:gap-5"
+              className="flex flex-wrap items-center justify-center gap-3 sm:gap-4 md:gap-5"
             >
               {socials.map((s, i) => {
                 const Icon = s.icon;

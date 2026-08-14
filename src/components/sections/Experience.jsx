@@ -22,7 +22,7 @@ const experienceData = [
     role: "Mentor \u2013 Front-End",
     company: "Instant Software Solutions",
     location: "Cairo, Egypt",
-    period: "Mar 2025 - Present",
+    period: "Mar 2025 - Dec 2025",
     type: "Full-time",
     achievements: [
       "Mentoring junior developers in front-end technologies and best practices",
@@ -84,7 +84,7 @@ function Experience() {
     viewport={{ once: true }}
     className="mb-16"
   >
-          <h2 className="text-5xl md:text-6xl font-bold mb-4">
+          <h2 className="text-4xl sm:text-5xl md:text-6xl font-bold mb-4">
             <span className="text-white">Professional</span>{" "}
             <span className="text-[#D4AF37]">Experience</span>
           </h2>
@@ -99,59 +99,51 @@ function Experience() {
     initial="hidden"
     whileInView="visible"
     viewport={{ once: true }}
-    className="space-y-8"
+    className="relative max-w-6xl mx-auto"
   >
-          {experienceData.map((exp, index) => <motion.div
-    key={index}
-    variants={staggerItem}
-    className="relative"
-  >
-              {
-    /* Timeline connector */
-  }
-              {index !== experienceData.length - 1 && <div className="absolute left-6 top-24 w-1 h-16 bg-gradient-to-b from-[#D4AF37] to-transparent" />}
+          <div className="absolute left-1/2 top-0 bottom-0 w-[3px] -translate-x-1/2 rounded-full bg-gradient-to-b from-[#f9d976] via-[#d4af37] to-[#7a5b00] shadow-[0_0_24px_rgba(212,175,55,0.7)]" />
 
-              {
-    /* Timeline dot */
-  }
-              <div className="absolute left-0 top-8 w-12 h-12 bg-[rgba(212,175,55,0.2)] border-2 border-[#D4AF37] rounded-full flex items-center justify-center">
-                <Briefcase size={20} className="text-[#D4AF37]" />
+          {experienceData.map((exp, index) => {
+    const isLeft = index % 2 === 0;
+    return <motion.div
+      key={index}
+      variants={staggerItem}
+      className="relative mb-16 last:mb-0"
+    >
+              <div className="hidden md:flex absolute left-1/2 top-1/2 z-10 -translate-x-1/2 -translate-y-1/2 items-center justify-center w-14 h-14 rounded-full border-2 border-[#D4AF37] bg-[rgba(212,175,55,0.2)] shadow-[0_0_20px_rgba(212,175,55,0.45)]">
+                <Briefcase size={18} className="text-[#D4AF37]" />
               </div>
 
-              {
-    /* Content */
-  }
-              <GlassCard className="ml-24 p-8 border-l-4 border-[#D4AF37]">
-                <div className="flex flex-col md:flex-row md:justify-between md:items-start gap-4 mb-4">
-                  <div>
-                    <h3 className="text-2xl font-bold text-white">{exp.role}</h3>
-                    <p className="text-[#D4AF37] font-semibold">{exp.company}</p>
-                  </div>
-                  <div className="text-right">
-                    <p className="text-foreground-muted text-sm">{exp.period}</p>
-                    <p className="text-[#D4AF37] text-sm font-medium">{exp.type}</p>
-                  </div>
-                </div>
+              <div className={`md:flex ${isLeft ? "justify-start" : "justify-end"}`}>
+                <div className="w-full md:w-[46%]">
+                  <GlassCard className={`p-5 sm:p-6 md:p-8 border border-[rgba(212,175,55,0.18)] bg-[linear-gradient(135deg,rgba(15,23,42,0.85),rgba(20,27,45,0.75))] shadow-[0_20px_50px_rgba(15,23,42,0.45)] rounded-3xl ${isLeft ? "md:mr-8" : "md:ml-8"}`}>
+                    <div className="flex flex-col gap-4 mb-5">
+                      <div>
+                        <h3 className="text-xl sm:text-2xl font-bold text-white">{exp.role}</h3>
+                        <p className="text-[#D4AF37] font-semibold text-base">{exp.company}</p>
+                      </div>
+                      <div>
+                        <p className="text-slate-300 text-sm">{exp.period}</p>
+                        <p className="text-[#f1c75b] text-sm font-medium">{exp.type}</p>
+                      </div>
+                    </div>
 
-                {
-    /* Location */
-  }
-                <div className="flex items-center gap-1 text-foreground-muted text-sm mb-4">
-                  <MapPin size={16} className="text-[#D4AF37]" />
-                  {exp.location}
-                </div>
+                    <div className="flex items-center gap-2 text-slate-300 text-sm mb-4">
+                      <MapPin size={16} className="text-[#D4AF37]" />
+                      <span>{exp.location}</span>
+                    </div>
 
-                {
-    /* Achievements */
-  }
-                <div className="space-y-2">
-                  {exp.achievements.map((achievement, i) => <div key={i} className="flex items-start gap-2 text-foreground-muted">
-                      <span className="text-[#D4AF37] font-bold text-lg leading-none mt-1">•</span>
-                      <span className="text-sm">{achievement}</span>
-                    </div>)}
+                    <div className="space-y-2.5">
+                      {exp.achievements.map((achievement, i) => <div key={i} className="flex items-start gap-2 text-slate-300">
+                          <span className="text-[#D4AF37] font-bold text-lg leading-none mt-1 shrink-0">•</span>
+                          <span className="text-sm sm:text-[0.95rem] leading-relaxed">{achievement}</span>
+                        </div>)}
+                    </div>
+                  </GlassCard>
                 </div>
-              </GlassCard>
-            </motion.div>)}
+              </div>
+            </motion.div>;
+  })}
         </motion.div>
       </div>
     </section>;

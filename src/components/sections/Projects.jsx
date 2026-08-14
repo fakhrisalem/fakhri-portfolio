@@ -98,7 +98,7 @@ function Projects() {
     viewport={{ once: true }}
     className="mb-16"
   >
-          <h2 className="text-5xl md:text-6xl font-bold mb-4">
+          <h2 className="text-4xl sm:text-5xl md:text-6xl font-bold mb-4">
             <span className="text-white">Featured</span>{" "}
             <span className="text-[#D4AF37]">Projects</span>
           </h2>
@@ -114,7 +114,7 @@ function Projects() {
     className="mb-16"
   >
             <GlassCard className="overflow-hidden">
-              <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 p-8">
+              <div className="grid grid-cols-1 lg:grid-cols-2 gap-6 md:gap-8 p-4 sm:p-6 md:p-8">
                 {/* Image */}
                 <motion.div
     whileHover={{ scale: 1.05 }}
@@ -146,7 +146,7 @@ function Projects() {
                     {/* Features */}
                     <div className="mb-6">
                       <h4 className="text-[#D4AF37] font-semibold mb-3">Key Features:</h4>
-                      <div className="grid grid-cols-2 gap-2">
+                      <div className="grid grid-cols-1 sm:grid-cols-2 gap-2">
                         {projectsData[0].features.map((feature, idx) => <div
     key={idx}
     className="text-sm text-foreground-muted flex items-center gap-2"
@@ -169,7 +169,7 @@ function Projects() {
                   </div>
 
                   {/* Buttons */}
-                  <div className="flex gap-4">
+                  <div className="flex flex-col sm:flex-row gap-3 sm:gap-4">
                     <PremiumButton
     variant="gold"
     href={projectsData[0].github}
@@ -198,7 +198,7 @@ function Projects() {
     initial="hidden"
     whileInView="visible"
     viewport={{ once: true }}
-    className="grid grid-cols-1 md:grid-cols-2 gap-8"
+    className="grid grid-cols-1 md:grid-cols-2 gap-6 md:gap-8"
   >
           {projectsData.slice(1).map((project) => <motion.div key={project.id} variants={staggerItem}>
               <GlassCard className="h-full flex flex-col p-6 overflow-hidden group">
@@ -240,7 +240,7 @@ function Projects() {
                 </div>
 
                 {/* Buttons */}
-                <div className="flex gap-3">
+                <div className="flex gap-3 mt-auto">
                   <PremiumButton
     variant="gold"
     size="sm"

@@ -102,20 +102,20 @@ function Hero() {
             initial={{ opacity: 0, y: 30 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, delay: 2.8 }}
-            className="flex flex-col md:flex-row gap-5 pt-8"
+            className="flex w-full max-w-[560px] flex-col sm:flex-row items-stretch justify-center gap-4 pt-8"
           >
             {/* Explore My Work */}
             <motion.button
               onClick={() => scrollToSection("projects")}
               whileHover={{ scale: 1.07, boxShadow: "0 0 32px rgba(212,175,55,0.55)" }}
               whileTap={{ scale: 0.96 }}
-              className="group relative flex items-center justify-center gap-3 px-8 py-4 rounded-xl font-bold text-base overflow-hidden"
+              className="group relative flex w-full sm:w-auto items-center justify-center gap-3 px-6 py-4 sm:px-8 rounded-xl font-bold text-sm sm:text-base overflow-hidden"
               style={{
                 background: "linear-gradient(135deg, #D4AF37 0%, #F4D35E 50%, #D4AF37 100%)",
                 color: "#0a0a0a",
                 border: "none",
                 cursor: "pointer",
-                minWidth: 200,
+                minWidth: 0,
               }}
             >
               <motion.span
@@ -136,13 +136,13 @@ function Hero() {
               onClick={() => scrollToSection("contact")}
               whileHover={{ scale: 1.07, boxShadow: "0 0 28px rgba(212,175,55,0.3)" }}
               whileTap={{ scale: 0.96 }}
-              className="group relative flex items-center justify-center gap-3 px-8 py-4 rounded-xl font-bold text-base overflow-hidden"
+              className="group relative flex w-full sm:w-auto items-center justify-center gap-3 px-6 py-4 sm:px-8 rounded-xl font-bold text-sm sm:text-base overflow-hidden"
               style={{
                 background: "transparent",
                 color: "#D4AF37",
                 border: "2px solid rgba(212,175,55,0.6)",
                 cursor: "pointer",
-                minWidth: 200,
+                minWidth: 0,
                 backdropFilter: "blur(8px)",
               }}
             >
@@ -160,7 +160,7 @@ function Hero() {
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             transition={{ duration: 0.8, delay: 3.1 }}
-            className="flex gap-4 pt-4"
+            className="flex flex-wrap items-center justify-center gap-3 sm:gap-4 pt-4"
           >
             {[
               { icon: Code2,  href: "https://github.com/fakhrisalem",          label: "GitHub"    },
@@ -202,7 +202,7 @@ function Hero() {
 
 /* Typing animation for the specialization line */
 function TypingTitle() {
-  const fullText = "Full Stack Developer & Front-End Development";
+  const fullText = "Software Engineer | Full Stack Developer";
   const [displayed, setDisplayed] = useState("");
 
   useEffect(() => {
