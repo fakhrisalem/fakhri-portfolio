@@ -9,9 +9,9 @@ const navItems = [
   { label: "Projects", href: "#projects" },
   { label: "Skills", href: "#skills" },
   { label: "Leadership", href: "#leadership" },
-  { label: "Dreams", href: "#dreams" },
   { label: "Certifications", href: "#certifications" },
-  { label: "Contact", href: "#contact" }
+  { label: "Contact", href: "#contact" },
+  { label: "Dreams", href: "#dreams" }
 ];
 function Navigation() {
   const [isOpen, setIsOpen] = useState(false);
@@ -20,7 +20,7 @@ function Navigation() {
   useEffect(() => {
     const handleScroll = () => {
       setScrolled(window.scrollY > 50);
-      const sections = ["hero", "about", "education", "experience", "projects", "skills", "leadership", "dreams", "certifications", "contact"];
+      const sections = ["hero", "about", "education", "experience", "projects", "skills", "leadership", "certifications", "contact", "dreams"];
       for (const section of sections) {
         const element = document.getElementById(section);
         if (element) {
@@ -64,10 +64,19 @@ function Navigation() {
   }
           <motion.div
     whileHover={{ scale: 1.05 }}
-    className="flex items-center gap-2 text-2xl font-bold"
+    className="flex items-center gap-3 text-2xl font-bold"
   >
-            <span className="text-white">Mona</span>
-            <span className="text-[#D4AF37]">Fakhri</span>
+            <a href="#hero" onClick={(e) => handleNavClick(e, "#hero")} className="flex items-center gap-3">
+              <img
+                src={`${import.meta.env.BASE_URL}logo-mona.png`}
+                alt="Mona Fakhri logo"
+                className="h-10 w-10 object-contain sm:h-11 sm:w-11"
+              />
+              <span>
+                <span className="text-white">Mona</span>{" "}
+                <span className="text-[#D4AF37]">Fakhri</span>
+              </span>
+            </a>
           </motion.div>
 
           {

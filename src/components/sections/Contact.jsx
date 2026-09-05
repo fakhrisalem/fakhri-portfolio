@@ -30,8 +30,8 @@ function Contact() {
   };
   const handleDownloadCV = () => {
     const link = document.createElement("a");
-    link.href = "/image/MonaFakhriSalem_CV_G.pdf";
-    link.download = "MonaFakhriSalem_CV_G.pdf";
+    link.href = `${import.meta.env.BASE_URL}Mona_Salem_Software_Engineering_Intern_CV.pdf`;
+    link.download = "Mona_Salem_Software_Engineering_Intern_CV.pdf";
     link.click();
   };
   return <section id="contact" className="py-20 relative z-10">
@@ -52,7 +52,7 @@ function Contact() {
           </h2>
           <div className="w-20 h-1 bg-gradient-to-r from-[#D4AF37] to-transparent rounded-full mx-auto mb-4" />
           <p className="text-foreground-muted text-lg max-w-2xl mx-auto">
-            I&apos;m always interested in hearing about new front-end development opportunities and projects. Whether you have a question about React, web design, or just want to connect, feel free to reach out!
+            I&apos;m interested in Software Engineering Internship opportunities involving problem solving, software development, backend and frontend systems, testing, and collaborative engineering. Feel free to reach out to discuss a project or opportunity.
           </p>
         </motion.div>
 
@@ -132,8 +132,8 @@ function Contact() {
               <h3 className="text-white font-semibold mb-4">Connect With Me</h3>
               <div className="grid grid-cols-2 gap-3">
                 {[
-    { icon: Code2, href: "https://github.com/MonaFakhri", label: "GitHub" },
-    { icon: Heart, href: "https://linkedin.com/in/mona-fakhri", label: "LinkedIn" },
+    { icon: Code2, href: "https://github.com/fakhrisalem", label: "GitHub" },
+    { icon: Heart, href: "https://www.linkedin.com/in/monafakhri", label: "LinkedIn" },
     { icon: Mail, href: "mailto:monafakhri50@gmail.com", label: "Email" },
     { icon: Send, href: "https://wa.me/201154926990", label: "WhatsApp" }
   ].map((social) => {
@@ -263,8 +263,7 @@ function Contact() {
                   <PremiumButton
     variant="gold"
     size="lg"
-    onClick={() => handleSubmit({ preventDefault: () => {
-    } })}
+    type="submit"
     className="w-full justify-center"
   >
                     Send Message

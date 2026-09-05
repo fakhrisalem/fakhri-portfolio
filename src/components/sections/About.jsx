@@ -39,15 +39,15 @@ function About() {
   >
             <GlassCard className="p-8">
               <p className="text-lg text-foreground-muted leading-relaxed mb-6">
-                I&apos;m a passionate Software Engineer specializing in Front-End Development with expertise in React.js and modern web technologies. My journey began with a love for UI/UX best practices, which has evolved into creating responsive, user-friendly applications that solve real-world problems.
+                I&apos;m a Computer Science student and Software Engineering Intern candidate with hands-on experience across software development, backend APIs, databases, testing, automation, and full-stack web applications. I work with Python, C++, JavaScript, and TypeScript and enjoy building reliable solutions through problem solving and clean code.
               </p>
 
               <p className="text-lg text-foreground-muted leading-relaxed mb-6">
-                With hands-on experience in HTML, CSS, JavaScript, and component-based architecture, I combine technical excellence with creative problem-solving. I&apos;m committed to writing clean, maintainable code and delivering exceptional user experiences through intuitive interface design.
+                My projects include a full-stack HR platform, backend services, Python automation tools, C++ systems, data analysis notebooks, and responsive React applications. I apply data structures, algorithms, object-oriented programming, SOLID principles, unit testing, Git, Docker, and Agile practices to practical software projects.
               </p>
 
               <p className="text-lg text-foreground-muted leading-relaxed">
-                Currently mentoring junior developers at Instant Software Solutions, I bring both technical expertise and a passion for knowledge-sharing. I&apos;m constantly learning new technologies and staying updated with the latest design patterns and best practices in web development.
+                Alongside software development, I mentor junior developers and teach programming fundamentals. I am continuously strengthening my algorithmic problem-solving skills, including solving 100+ problems on LeetCode, while learning how to design maintainable systems across different technical domains.
               </p>
             </GlassCard>
 
@@ -57,7 +57,7 @@ function About() {
             <GlassCard className="p-8 border-l-4 border-[#D4AF37]">
               <h3 className="text-2xl font-bold text-white mb-4">Career Objective</h3>
               <p className="text-foreground-muted leading-relaxed">
-                To leverage my Front-End expertise and passion for user-centric design to build innovative, responsive web applications that enhance user experiences. Seeking opportunities to contribute to growth-driven organizations where technical excellence, continuous learning, and agile methodologies are valued. Committed to mentoring junior developers and fostering a collaborative, knowledge-sharing culture.
+                To contribute as a Software Engineering Intern in a collaborative environment where I can apply my foundations in algorithms, programming, backend and frontend development, testing, and software design while continuing to grow as a well-rounded engineer.
               </p>
             </GlassCard>
           </motion.div>
@@ -91,9 +91,9 @@ function About() {
   }
             <div className="space-y-4">
               {[
-    { number: 10, suffix: "+", label: "Projects Completed" },
-    { number: 12, suffix: "+", label: "Technologies Mastered" },
-    { number: 8, suffix: "+", label: "Team & Mentoring Projects" }
+    { number: 8, suffix: "+", label: "Featured Projects" },
+    { number: 4, suffix: "+", label: "Programming Languages" },
+    { number: 100, suffix: "+", label: "LeetCode Problems" }
   ].map((stat, index) => <motion.div
     key={index}
     variants={staggerItem}
@@ -123,24 +123,24 @@ function About() {
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
             {[
     {
-      title: "React.js Development",
-      description: "Building dynamic, responsive user interfaces with modern React patterns, state management, and component architecture."
+      title: "Software Engineering",
+      description: "Building reliable software through data structures, algorithms, object-oriented programming, clean code, and practical project work."
     },
     {
-      title: "Responsive Design",
-      description: "Creating mobile-first, fully responsive web applications with CSS3, Bootstrap, and Tailwind CSS frameworks."
+      title: "Python & C++",
+      description: "Applying Python and C++ to automation, data structures, object-oriented design, and systems-oriented projects."
     },
     {
-      title: "UI/UX Best Practices",
-      description: "Translating Figma designs into pixel-perfect, accessible interfaces with focus on user experience and accessibility."
+      title: "Backend & APIs",
+      description: "Designing RESTful APIs and backend services with Node.js, Express.js, databases, authentication, and testing."
     },
     {
-      title: "JavaScript & TypeScript",
-      description: "Writing clean, maintainable code with modern JavaScript ES6+, async programming, and type-safe development."
+      title: "Web Development",
+      description: "Creating responsive, user-centered applications with React.js, TypeScript, state management, and modern web practices."
     },
     {
-      title: "Design Tools & Prototyping",
-      description: "Proficient in Figma and Adobe XD for design collaboration and converting prototypes into production code."
+      title: "Testing & DevOps",
+      description: "Working with Jest, React Testing Library, Docker, GitHub Actions, CI/CD, Git, and Agile collaboration."
     },
     {
       title: "Mentoring & Teaching",
@@ -169,3 +169,4 @@ function About() {
 export {
   About
 };
+

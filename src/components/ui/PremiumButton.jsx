@@ -1,3 +1,4 @@
+
 "use client";
 import { motion } from "framer-motion";
 function PremiumButton({
@@ -8,7 +9,8 @@ function PremiumButton({
   size = "md",
   className = "",
   disabled = false,
-  external = false
+  external = false,
+  type = "button"
 }) {
   const baseClass = `
     font-semibold rounded-lg
@@ -33,6 +35,7 @@ function PremiumButton({
     target: external ? "_blank" : void 0,
     rel: external ? "noopener noreferrer" : void 0
   } : {
+    type,
     onClick,
     disabled
   };

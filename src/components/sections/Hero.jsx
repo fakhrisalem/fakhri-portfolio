@@ -165,8 +165,8 @@ function Hero() {
             {[
               { icon: Code2,  href: "https://github.com/fakhrisalem",          label: "GitHub"    },
               { icon: Heart,  href: "https://www.linkedin.com/in/monafakhri",    label: "LinkedIn"  },
-              { icon: Mail,   href: "monafakhri50@gmail.com",           label: "Email"     },
-              { icon: Send,   href: "https://wa.me/01154926990",              label: "WhatsApp"  },
+              { icon: Mail,   href: "mailto:monafakhri50@gmail.com",  label: "Email"     },
+              { icon: Send,   href: "https://wa.me/201154926990",      label: "WhatsApp"  },
             ].map((social) => {
               const Icon = social.icon;
               return (

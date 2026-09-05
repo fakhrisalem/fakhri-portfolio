@@ -11,9 +11,9 @@ import { Experience } from '@/components/sections/Experience'
 import { Projects } from '@/components/sections/Projects'
 import { Skills } from '@/components/sections/Skills'
 import { Leadership } from '@/components/sections/Leadership'
-import { Dreams } from '@/components/sections/Dreams'
 import { Certifications } from '@/components/sections/Certifications'
 import { Contact } from '@/components/sections/Contact'
+import { Dreams } from '@/components/sections/Dreams'
 
 function App() {
   const [entered, setEntered] = useState(false)
@@ -38,9 +38,9 @@ function App() {
         <Projects />
         <Skills />
         <Leadership />
-        <Dreams />
         <Certifications />
         <Contact />
+        <Dreams />
         <Footer />
       </div>
 
@@ -51,3 +51,4 @@ function App() {
 }
 
 export default App
+

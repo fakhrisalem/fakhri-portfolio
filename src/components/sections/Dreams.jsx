@@ -4,19 +4,14 @@ import { GlassCard } from "@/components/ui/GlassCard";
 import { staggerContainer, staggerItem } from "@/lib/animations";
 const dreamsData = [
   {
-    title: "Work at Google",
-    description: "One of my biggest professional dreams is to join Google — a company that represents innovation, excellence, and global impact. I aspire to contribute to world-class products, collaborate with brilliant minds, and grow in an environment that pushes the boundaries of technology every single day.",
-    image: "image/google.png"
+    title: "Work in Global Companies",
+    description: "One of my biggest professional dreams is to work with leading global companies that represent innovation, excellence, and worldwide impact. I aspire to contribute to world-class products, collaborate with talented teams, and grow in an environment that pushes the boundaries of technology.",
+    image: "image/global-companies.jpg"
   },
   {
-    title: "Give Back Through Charity",
-    description: "I believe that true success is measured by how much we give back. I dream of actively contributing to charitable causes — whether through volunteering, organizing community initiatives, or using my tech skills to support non-profits and organizations that make a real difference in people's lives.",
-    image: "image/charitable works.jpg"
-  },
-  {
-    title: "Give Back Through Charity",
-    description: "I believe that true success is measured by how much we give back. I dream of actively contributing to charitable causes — whether through volunteering, organizing community initiatives, or using my tech skills to support non-profits and organizations that make a real difference in people's lives.",
-    image: "image/charitable works.jpg"
+    title: "Help People Learn Programming Easily",
+    description: "I dream of helping many people learn programming in a simple and accessible way. I want to share practical knowledge, explain difficult concepts clearly, and encourage beginners to build confidence and create useful projects with technology.",
+    image: "image/programming-education.jpg"
   },
   {
     title: "Travel the World",
@@ -24,6 +19,9 @@ const dreamsData = [
     image: "image/traval.jpg"
   }
 ];
+
+const assetPath = (path) => `${import.meta.env.BASE_URL}${path}`;
+
 function Dreams() {
   return <section id="dreams" className="py-20 relative z-10">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -58,7 +56,7 @@ function Dreams() {
                 {/* Dream Image */}
                 <div className="relative h-48 w-full overflow-hidden">
                   <img
-    src={dream.image}
+    src={assetPath(dream.image)}
     alt={dream.title}
     className="w-full h-full object-cover hover:scale-105 transition-transform duration-300"
   />
@@ -107,3 +105,5 @@ function Dreams() {
 export {
   Dreams
 };
+
+
