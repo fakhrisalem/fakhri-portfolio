@@ -1,0 +1,390 @@
+.dreams-section {
+  --section-mouse-x: 50%;
+  --section-mouse-y: 50%;
+  isolation: isolate;
+  background:
+    radial-gradient(circle at var(--section-mouse-x) var(--section-mouse-y), rgba(212, 175, 55, 0.16) 0, rgba(212, 175, 55, 0.05) 13rem, transparent 30rem),
+    radial-gradient(ellipse at 12% 75%, rgba(35, 62, 106, 0.32), transparent 34%),
+    radial-gradient(ellipse at 92% 10%, rgba(93, 70, 27, 0.18), transparent 29%),
+    linear-gradient(135deg, #05070d 0%, #0b1220 48%, #06080e 100%);
+}
+
+.dreams-grid-overlay {
+  position: absolute;
+  inset: 0;
+  z-index: -1;
+  pointer-events: none;
+  opacity: 0.08;
+  background-image:
+    linear-gradient(rgba(255, 255, 255, 0.8) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(255, 255, 255, 0.8) 1px, transparent 1px);
+  background-size: 72px 72px;
+  mask-image: linear-gradient(to bottom, black, transparent 82%);
+}
+
+.dreams-mouse-light {
+  position: absolute;
+  z-index: -1;
+  width: 32rem;
+  height: 32rem;
+  left: calc(var(--section-mouse-x) - 16rem);
+  top: calc(var(--section-mouse-y) - 16rem);
+  border-radius: 999px;
+  pointer-events: none;
+  background: radial-gradient(circle, rgba(212, 175, 55, 0.13), transparent 68%);
+  filter: blur(8px);
+  transition: left 180ms ease-out, top 180ms ease-out;
+}
+
+.dreams-heading {
+  display: flex;
+  align-items: end;
+  justify-content: space-between;
+  gap: 3rem;
+  position: relative;
+  z-index: 2;
+}
+
+.dreams-eyebrow,
+.dreams-footer,
+.dream-card-meta {
+  color: #d4af37;
+  font-family: "JetBrains Mono", monospace;
+  font-size: 0.7rem;
+  font-weight: 700;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+}
+
+.dreams-eyebrow {
+  margin: 0;
+  letter-spacing: 0.24em;
+}
+
+.dreams-title {
+  margin: 0.9rem 0 0;
+  color: #fffaf0;
+  font-family: "DM Serif Display", Georgia, serif;
+  font-size: clamp(3.8rem, 8vw, 6.2rem);
+  font-weight: 400;
+  letter-spacing: -0.07em;
+  line-height: 0.88;
+}
+
+.dreams-title strong {
+  color: #d4af37;
+  font-weight: 400;
+}
+
+.dreams-intro {
+  max-width: 23rem;
+  margin: 0 4.5rem 0 0;
+  color: #afb1bf;
+  font-size: 0.9rem;
+  line-height: 1.8;
+}
+
+.dreams-rope {
+  position: relative;
+  z-index: 1;
+  height: 0.6rem;
+  margin: 12.5rem 0 0;
+  border-radius: 999px;
+  background: linear-gradient(90deg, #8b6f47, #d4af37 48%, #aa8c23);
+  box-shadow: 0 0.25rem 0 rgba(0, 0, 0, 0.5), 0 0 1.6rem rgba(212, 175, 55, 0.55), 0 0 4rem rgba(212, 175, 55, 0.16);
+  transform-origin: left center;
+}
+
+.dreams-rope::before {
+  content: "";
+  position: absolute;
+  inset: 0.12rem 0 0.3rem;
+  border-radius: inherit;
+  background: linear-gradient(90deg, rgba(255, 255, 255, 0.2), rgba(255, 248, 217, 0.55), rgba(255, 255, 255, 0.14));
+}
+
+.dreams-cards {
+  position: relative;
+  z-index: 3;
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: clamp(1.25rem, 3vw, 3.5rem);
+  margin-top: -0.4rem;
+  padding: 0 clamp(0rem, 2vw, 2.5rem);
+}
+
+.dream-card {
+  --card-mouse-x: 50%;
+  --card-mouse-y: 50%;
+  --card-rotate-x: 0deg;
+  --card-rotate-y: 0deg;
+  position: relative;
+  min-width: 0;
+  padding-top: 0.1rem;
+  transform: perspective(900px) rotate(var(--card-rest-rotation, 0deg)) rotateX(var(--card-rotate-x)) rotateY(var(--card-rotate-y));
+  transform-origin: top center;
+  transition: transform 380ms cubic-bezier(0.2, 0.8, 0.2, 1), filter 380ms ease;
+  animation: dream-sway 5.5s ease-in-out infinite;
+  animation-delay: var(--sway-delay, 0s);
+}
+
+.dream-card-1 {
+  --card-rest-rotation: -5deg;
+  --sway-delay: -0.8s;
+}
+
+.dream-card-2 {
+  --card-rest-rotation: 2deg;
+  --sway-delay: -2.1s;
+}
+
+.dream-card-3 {
+  --card-rest-rotation: 5deg;
+  --sway-delay: -3.4s;
+}
+
+.dream-card:hover {
+  z-index: 10;
+  animation-play-state: paused;
+  filter: brightness(1.05);
+}
+
+.dream-card-string {
+  position: absolute;
+  z-index: -1;
+  top: -7.1rem;
+  left: 50%;
+  width: 0.13rem;
+  height: 7.2rem;
+  background: linear-gradient(#d4af37, #8b6f47);
+  transform: translateX(-50%);
+}
+
+.dream-card-clip {
+  position: absolute;
+  z-index: 4;
+  top: -0.65rem;
+  left: 50%;
+  width: 1.55rem;
+  height: 1.55rem;
+  border: 0.25rem solid #d4af37;
+  border-radius: 999px;
+  background: #0b0e19;
+  box-shadow: 0 0 0 0.25rem #090c14, 0 0 1rem rgba(212, 175, 55, 0.7);
+  transform: translateX(-50%);
+}
+
+.dream-card-paper {
+  position: relative;
+  overflow: hidden;
+  min-height: 26rem;
+  padding: 0.85rem 0.85rem 1.3rem;
+  border: 1px solid rgba(255, 255, 255, 0.78);
+  background: linear-gradient(145deg, #fbf8ef, #e8e0cb);
+  color: #1e2030;
+  box-shadow: 0 1.7rem 2.8rem rgba(0, 0, 0, 0.48), 0 0.45rem 0 rgba(212, 175, 55, 0.1);
+  transition: box-shadow 380ms ease, transform 380ms ease;
+}
+
+.dream-card-paper::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  background: radial-gradient(circle at var(--card-mouse-x) var(--card-mouse-y), rgba(212, 175, 55, 0.2), transparent 35%);
+  opacity: 0;
+  transition: opacity 300ms ease;
+}
+
+.dream-card:hover .dream-card-paper {
+  box-shadow: 0 2.2rem 4.2rem rgba(0, 0, 0, 0.62), 0 0 0 0.25rem rgba(212, 175, 55, 0.24), 0 0 2.5rem rgba(212, 175, 55, 0.15);
+}
+
+.dream-card:hover .dream-card-paper::before {
+  opacity: 1;
+}
+
+.dream-card-image-wrap {
+  position: relative;
+  overflow: hidden;
+  height: 11.5rem;
+}
+
+.dream-card-image {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  filter: saturate(0.82) contrast(1.03);
+  transition: transform 700ms ease, filter 500ms ease;
+}
+
+.dream-card:hover .dream-card-image {
+  transform: scale(1.07);
+  filter: saturate(1) contrast(1.04);
+}
+
+.dream-card-meta {
+  display: flex;
+  justify-content: space-between;
+  gap: 0.6rem;
+  margin-top: 1.1rem;
+  color: #7461c5;
+  font-size: 0.6rem;
+  letter-spacing: 0.14em;
+}
+
+.dream-card h3 {
+  position: relative;
+  margin: 0.65rem 0 0.55rem;
+  font-size: 1.3rem;
+  font-weight: 800;
+  letter-spacing: -0.04em;
+  line-height: 1.08;
+}
+
+.dream-card p {
+  position: relative;
+  margin: 0;
+  color: #656674;
+  font-size: 0.78rem;
+  line-height: 1.6;
+}
+
+.dream-card-arrow {
+  position: absolute;
+  right: 0.85rem;
+  bottom: 0.75rem;
+  color: #b08b22;
+  font-size: 1.2rem;
+}
+
+.dreams-footer {
+  display: flex;
+  justify-content: space-between;
+  gap: 2rem;
+  margin-top: 5.5rem;
+  color: #d4af37;
+  font-size: 0.65rem;
+}
+
+.dreams-footer span:last-child {
+  color: #777b8a;
+}
+
+.dreams-motivation {
+  max-width: 58rem;
+  margin: 4.5rem auto 0;
+  padding: 1.8rem 2rem;
+  border-top: 1px solid rgba(212, 175, 55, 0.25);
+  border-bottom: 1px solid rgba(212, 175, 55, 0.12);
+  text-align: center;
+}
+
+.dreams-motivation p {
+  margin: 0;
+  color: #aeb0bc;
+  font-size: 0.9rem;
+  line-height: 1.8;
+}
+
+.dreams-motivation span {
+  color: #d4af37;
+  font-weight: 700;
+}
+
+@keyframes dream-sway {
+  0%,
+  100% {
+    margin-top: 0;
+  }
+  50% {
+    margin-top: 0.45rem;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .dream-card,
+  .dream-card-paper,
+  .dream-card-image,
+  .dreams-mouse-light {
+    animation: none;
+    transition: none;
+  }
+}
+
+@media (max-width: 1024px) {
+  .dreams-heading {
+    align-items: start;
+    flex-direction: column;
+    gap: 1.5rem;
+  }
+
+  .dreams-intro {
+    margin-right: 0;
+  }
+
+  .dreams-rope {
+    margin-top: 9rem;
+  }
+
+  .dreams-cards {
+    gap: 1rem;
+    padding: 0;
+  }
+
+  .dream-card-paper {
+    min-height: 27rem;
+  }
+}
+
+@media (max-width: 700px) {
+  .dreams-section {
+    padding-top: 4rem;
+    padding-bottom: 4rem;
+  }
+
+  .dreams-title {
+    font-size: clamp(3.25rem, 17vw, 5rem);
+  }
+
+  .dreams-rope {
+    height: 0.35rem;
+    margin: 6rem 0 0;
+  }
+
+  .dreams-cards {
+    display: flex;
+    flex-direction: column;
+    gap: 4rem;
+    margin-top: 0;
+    padding: 0 1.5rem;
+  }
+
+  .dream-card,
+  .dream-card-1,
+  .dream-card-2,
+  .dream-card-3 {
+    --card-rest-rotation: 0deg;
+    width: 100%;
+    max-width: 26rem;
+    margin: 0 auto;
+  }
+
+  .dream-card-string {
+    top: -5.1rem;
+    height: 5.3rem;
+  }
+
+  .dream-card-clip {
+    top: -0.7rem;
+  }
+
+  .dreams-footer {
+    flex-direction: column;
+    margin-top: 4rem;
+  }
+
+  .dreams-motivation {
+    padding: 1.4rem 0;
+  }
+}

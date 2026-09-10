@@ -1,0 +1,40 @@
+{
+  "categories": [
+    {"id":"languages","title":"Programming Languages","subtitle":"THE LANGUAGE TREE","tagline":"ROOTED IN PRACTICE","color":"#8fcf75","accent":"#c5e9a7","skills":[
+      {"name":"Python","percentage":78,"experience":"Used for automation scripts, data analysis notebooks, backend utilities, and algorithmic problem solving.","projects":"Python Automation Toolkit · Data Analysis Notebook","tools":"Python · Pandas · Jupyter"},
+      {"name":"C++","percentage":74,"experience":"Applied object-oriented programming, data structures, and systems-oriented thinking in practical projects.","projects":"C++ Systems Projects · Algorithm Practice","tools":"C++ · STL · OOP"},
+      {"name":"JavaScript","percentage":90,"experience":"Used to build interactive browser experiences, frontend features, and full-stack application logic.","projects":"Responsive React Applications · HR Platform","tools":"JavaScript · ES6+ · Node.js"},
+      {"name":"TypeScript","percentage":82,"experience":"Used for safer, maintainable React components, typed APIs, and scalable application structure.","projects":"Full-Stack HR Platform · Type-Safe UI Components","tools":"TypeScript · React · Express"},
+      {"name":"SQL","percentage":70,"experience":"Used to model, query, and work with structured application data and relational database concepts.","projects":"Backend Services · Data Analysis Work","tools":"SQL · MongoDB concepts · Data modeling"}
+    ]},
+    {"id":"fundamentals","title":"CS Fundamentals","subtitle":"THE THINKING TREE","tagline":"THINK DEEPLY","color":"#79bd68","accent":"#b8e89f","skills":[
+      {"name":"Data Structures & Algorithms","percentage":82,"experience":"Practiced arrays, strings, hash tables, trees, recursion, and dynamic programming through problem solving.","projects":"100+ LeetCode Problems · Algorithm Practice","tools":"Algorithms · Complexity analysis"},
+      {"name":"Object-Oriented Programming","percentage":86,"experience":"Applied classes, abstraction, encapsulation, inheritance, and polymorphism to modular software.","projects":"C++ Systems · Backend Services","tools":"OOP · C++ · JavaScript"},
+      {"name":"Problem Solving","percentage":88,"experience":"Breaks complex requirements into smaller, testable steps and reliable technical solutions.","projects":"Automation Tools · Full-Stack Projects","tools":"Debugging · Analysis · Algorithms"},
+      {"name":"Time & Space Complexity","percentage":78,"experience":"Evaluates algorithm efficiency and makes practical trade-offs when designing solutions.","projects":"LeetCode Practice · Data Structures Work","tools":"Big O · Optimization"},
+      {"name":"Clean Code & SOLID","percentage":82,"experience":"Uses readable naming, modular structure, separation of concerns, and maintainable design principles.","projects":"HR Platform · Reusable React Components","tools":"SOLID · Refactoring · Design patterns"}
+    ]},
+    {"id":"backend","title":"Backend & Testing","subtitle":"THE SYSTEMS TREE","tagline":"BUILD RELIABLY","color":"#67b875","accent":"#a8e3b1","skills":[
+      {"name":"Node.js / Express.js","percentage":82,"experience":"Builds RESTful backend services, routes, middleware, and server-side application logic.","projects":"Full-Stack HR Platform · Backend Services","tools":"Node.js · Express.js · REST"},
+      {"name":"RESTful APIs","percentage":84,"experience":"Designs clear API routes, request validation, responses, and integration points for applications.","projects":"HR Platform APIs · Service Endpoints","tools":"REST · JSON · HTTP"},
+      {"name":"MongoDB / SQL","percentage":76,"experience":"Works with persistence, collections or tables, queries, and application data flows.","projects":"HR Data Workflows · Backend Services","tools":"MongoDB · SQL · Data modeling"},
+      {"name":"Jest / React Testing Library","percentage":76,"experience":"Writes and organizes tests for application behavior, components, and reliable regressions.","projects":"React Application Testing · Unit Test Practice","tools":"Jest · RTL · Test cases"},
+      {"name":"Authentication & RBAC","percentage":78,"experience":"Understands authentication flows and role-based access control for protected application features.","projects":"HR Platform · Protected Backend Routes","tools":"Auth · RBAC · Middleware"}
+    ]},
+    {"id":"web-devops","title":"Web & DevOps","subtitle":"THE DELIVERY TREE","tagline":"SHIP WITH CONFIDENCE","color":"#51b88a","accent":"#a8efd0","skills":[
+      {"name":"React.js / Redux","percentage":90,"experience":"Creates reusable, responsive interfaces with component composition and state management.","projects":"Responsive React Applications · Portfolio","tools":"React · Redux · Framer Motion"},
+      {"name":"HTML5 / CSS3","percentage":92,"experience":"Builds accessible layouts, responsive styling, animations, and polished visual systems.","projects":"Portfolio UI · Responsive Web Interfaces","tools":"HTML5 · CSS3 · Tailwind CSS"},
+      {"name":"Git / GitHub","percentage":90,"experience":"Uses version control, branches, commits, collaboration workflows, and code review practices.","projects":"All Software Projects · Team Workflows","tools":"Git · GitHub · Pull requests"},
+      {"name":"Docker / CI/CD","percentage":72,"experience":"Understands containerized development and automated checks for repeatable delivery workflows.","projects":"Backend and Deployment Practice","tools":"Docker · GitHub Actions · CI/CD"},
+      {"name":"Agile / Code Review","percentage":86,"experience":"Works with iterative delivery, feedback, readable changes, and collaborative engineering habits.","projects":"Team Projects · Mentoring Work","tools":"Agile · Reviews · Collaboration"}
+    ]}
+  ],
+  "competencies":[
+    {"title":"Problem Solving","description":"Solved 100+ algorithmic problems on LeetCode while practicing arrays, strings, hash tables, trees, recursion, and dynamic programming."},
+    {"title":"Software Design","description":"Applying OOP, SOLID principles, clean code, design patterns, and modular architecture to practical projects."},
+    {"title":"Backend Engineering","description":"Building APIs and backend services with Node.js, Express.js, databases, authentication, and role-based access control."},
+    {"title":"Web Development","description":"Creating responsive applications with React, TypeScript, state management, reusable components, and accessible UI patterns."},
+    {"title":"Testing & DevOps","description":"Writing unit tests and working with GitHub Actions, Docker, CI/CD workflows, and collaborative code reviews."},
+    {"title":"Mentoring & Teaching","description":"Guiding junior developers and teaching programming fundamentals, algorithms, and clean coding practices."}
+  ]
+}

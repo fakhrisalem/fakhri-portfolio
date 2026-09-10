@@ -1,142 +1,59 @@
+import { useEffect, useState } from "react";
 import { motion } from "framer-motion";
 import { GlassCard } from "@/components/ui/GlassCard";
-import { ProgressBar } from "@/components/ui/ProgressBar";
-import { staggerContainer, staggerItem } from "@/lib/animations";
+import skillsData from "@/data/skills.json";
 
-const skillsData = {
-  "Programming Languages": [
-    { name: "Python", percentage: 78 },
-    { name: "C++", percentage: 74 },
-    { name: "JavaScript", percentage: 90 },
-    { name: "TypeScript", percentage: 82 },
-    { name: "SQL", percentage: 70 },
-  ],
-  "CS Fundamentals": [
-    { name: "Data Structures & Algorithms", percentage: 82 },
-    { name: "Object-Oriented Programming", percentage: 86 },
-    { name: "Problem Solving", percentage: 88 },
-    { name: "Time & Space Complexity", percentage: 78 },
-    { name: "Clean Code & SOLID", percentage: 82 },
-  ],
-  "Backend & Testing": [
-    { name: "Node.js / Express.js", percentage: 82 },
-    { name: "RESTful APIs", percentage: 84 },
-    { name: "MongoDB / SQL", percentage: 76 },
-    { name: "Jest / React Testing Library", percentage: 76 },
-    { name: "Authentication & RBAC", percentage: 78 },
-  ],
-  "Web & DevOps": [
-    { name: "React.js / Redux", percentage: 90 },
-    { name: "HTML5 / CSS3", percentage: 92 },
-    { name: "Git / GitHub", percentage: 90 },
-    { name: "Docker / CI/CD", percentage: 72 },
-    { name: "Agile / Code Review", percentage: 86 },
-  ],
-};
-
-const competencies = [
-  {
-    title: "Problem Solving",
-    description: "Solved 100+ algorithmic problems on LeetCode while practicing arrays, strings, hash tables, trees, recursion, and dynamic programming.",
-  },
-  {
-    title: "Software Design",
-    description: "Applying OOP, SOLID principles, clean code, design patterns, and modular architecture to practical projects.",
-  },
-  {
-    title: "Backend Engineering",
-    description: "Building APIs and backend services with Node.js, Express.js, databases, authentication, and role-based access control.",
-  },
-  {
-    title: "Web Development",
-    description: "Creating responsive applications with React, TypeScript, state management, reusable components, and accessible UI patterns.",
-  },
-  {
-    title: "Testing & DevOps",
-    description: "Writing unit tests and working with GitHub Actions, Docker, CI/CD workflows, and collaborative code reviews.",
-  },
-  {
-    title: "Mentoring & Teaching",
-    description: "Guiding junior developers and teaching programming fundamentals, algorithms, and clean coding practices.",
-  },
+const leafPositions = [
+  { x: 11, y: 31, side: "left" }, { x: 23, y: 20, side: "left" },
+  { x: 77, y: 20, side: "right" }, { x: 89, y: 31, side: "right" },
+  { x: 50, y: 16, side: "center" },
 ];
 
-function Skills() {
+function playLeafSound(kind = "leaf") {
+  const AudioContext = window.AudioContext || window.webkitAudioContext;
+  if (!AudioContext) return;
+  const context = new AudioContext();
+  const oscillator = context.createOscillator();
+  const gain = context.createGain();
+  oscillator.type = "sine";
+  oscillator.frequency.setValueAtTime(kind === "modal" ? 660 : 520, context.currentTime);
+  oscillator.frequency.exponentialRampToValueAtTime(kind === "modal" ? 880 : 620, context.currentTime + 0.09);
+  gain.gain.setValueAtTime(0.0001, context.currentTime);
+  gain.gain.exponentialRampToValueAtTime(0.035, context.currentTime + 0.012);
+  gain.gain.exponentialRampToValueAtTime(0.0001, context.currentTime + 0.16);
+  oscillator.connect(gain).connect(context.destination);
+  oscillator.start();
+  oscillator.stop(context.currentTime + 0.18);
+  oscillator.addEventListener("ended", () => context.close(), { once: true });
+}
+
+function OrganicTree({ category, index, onSkillClick, activeSkill }) {
+  const average = Math.round(category.skills.reduce((sum, skill) => sum + skill.percentage, 0) / category.skills.length);
+  const [light, setLight] = useState({ x: 50, y: 45 });
+  const moveLight = (event) => {
+    const box = event.currentTarget.getBoundingClientRect();
+    setLight({ x: ((event.clientX - box.left) / box.width) * 100, y: ((event.clientY - box.top) / box.height) * 100 });
+  };
   return (
-    <section id="skills" className="relative z-10 py-20">
-      <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-        <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.6 }}
-          viewport={{ once: true }}
-          className="mb-16"
-        >
-          <h2 className="mb-4 text-4xl font-bold sm:text-5xl md:text-6xl">
-            <span className="text-white">Technical</span>{" "}
-            <span className="text-[#D4AF37]">Skills</span>
-          </h2>
-          <p className="max-w-3xl text-lg leading-relaxed text-foreground-muted">
-            A balanced toolkit covering computer science fundamentals, programming languages, software development, testing, DevOps, and modern web applications.
-          </p>
-          <div className="mt-5 h-1 w-20 rounded-full bg-gradient-to-r from-[#D4AF37] to-transparent" />
-        </motion.div>
-
-        <motion.div
-          variants={staggerContainer}
-          initial="hidden"
-          whileInView="visible"
-          viewport={{ once: true }}
-          className="grid grid-cols-1 gap-8 md:grid-cols-2"
-        >
-          {Object.entries(skillsData).map(([category, skills]) => (
-            <motion.div key={category} variants={staggerItem}>
-              <GlassCard className="h-full p-5 sm:p-8">
-                <h3 className="mb-6 text-2xl font-bold text-[#D4AF37]">{category}</h3>
-                <div className="space-y-6">
-                  {skills.map((skill) => (
-                    <ProgressBar key={skill.name} label={skill.name} percentage={skill.percentage} />
-                  ))}
-                </div>
-              </GlassCard>
-            </motion.div>
-          ))}
-        </motion.div>
-
-        <motion.div
-          initial={{ opacity: 0, y: 50 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.6 }}
-          viewport={{ once: true }}
-          className="mt-16"
-        >
-          <h3 className="mb-8 text-3xl font-bold text-white">
-            Core <span className="text-[#D4AF37]">Competencies</span>
-          </h3>
-          <div className="grid grid-cols-1 gap-6 md:grid-cols-2 lg:grid-cols-3">
-            {competencies.map((competency, index) => (
-              <motion.div
-                key={competency.title}
-                initial={{ opacity: 0, scale: 0.9 }}
-                whileInView={{ opacity: 1, scale: 1 }}
-                transition={{ duration: 0.5, delay: index * 0.08 }}
-                viewport={{ once: true }}
-              >
-                <GlassCard className="h-full p-6 hover:border-[rgba(212,175,55,0.3)]">
-                  <div className="mb-4 flex h-12 w-12 items-center justify-center rounded-lg bg-[rgba(212,175,55,0.1)]">
-                    <div className="h-6 w-6 rounded-full border-2 border-[#D4AF37]" />
-                  </div>
-                  <h4 className="mb-2 text-lg font-bold text-white">{competency.title}</h4>
-                  <p className="text-sm leading-relaxed text-foreground-muted">{competency.description}</p>
-                </GlassCard>
-              </motion.div>
-            ))}
-          </div>
-        </motion.div>
-      </div>
-    </section>
+    <motion.article className="organic-tree" onPointerMove={moveLight} style={{ "--tree-color": category.color, "--tree-accent": category.accent, "--light-x": `${light.x}%`, "--light-y": `${light.y}%` }} initial={{ opacity: 0, y: 35, scale: .96 }} whileInView={{ opacity: 1, y: 0, scale: 1 }} viewport={{ once: true, amount: .2 }} transition={{ duration: .7, delay: index * .12 }}>
+      <header className="organic-tree__header"><div className="organic-tree__title-row"><h3>{category.title}</h3><span className="organic-tree__average" title="Average skill level">AVG {average}%</span></div><span>{category.subtitle}</span></header>
+      <svg className="organic-tree__svg" viewBox="0 0 600 380" aria-hidden="true"><path className="organic-tree__trunk" d={index % 2 ? "M300 355 C316 300 288 250 304 205 C317 165 344 132 370 100" : "M300 355 C286 300 305 252 298 208 C291 165 268 132 245 103"} /><path className="organic-tree__branch" d="M300 265 C252 222 205 184 143 153" /><path className="organic-tree__branch" d="M300 235 C350 185 400 145 465 112" /><path className="organic-tree__branch" d="M300 213 C300 160 300 125 300 82" /><path className="organic-tree__twig" d="M143 153 C119 136 106 125 91 111 M143 153 C138 176 137 190 139 207 M465 112 C486 96 500 84 516 69 M465 112 C472 134 476 150 477 166 M300 82 C280 61 272 50 263 36 M300 82 C321 61 330 51 340 38" />{[...Array(8)].map((_, leafIndex) => <ellipse key={leafIndex} className="organic-tree__leaf" cx={[87,139,518,477,263,340,105,498][leafIndex]} cy={[108,207,67,166,36,38,125,88][leafIndex]} rx="22" ry="12" />)}</svg>
+      {category.skills.map((skill, skillIndex) => { const position = leafPositions[skillIndex]; const intensity = skill.percentage >= 90 ? "high" : skill.percentage >= 75 ? "medium" : "soft"; const active = activeSkill?.name === skill.name; return <motion.button type="button" key={skill.name} className={`organic-tree__skill organic-tree__skill--${position.side} organic-tree__skill--${intensity} ${active ? "is-active" : ""}`} style={{ left: `${position.x}%`, top: `${position.y}%` }} onClick={() => { playLeafSound("leaf"); onSkillClick(skill, category); }} initial={{ opacity: 0, scale: .5 }} whileInView={{ opacity: 1, scale: 1 }} viewport={{ once: true }} transition={{ duration: .45, delay: index * .12 + skillIndex * .1 }} whileHover={{ scale: 1.08, y: -5, rotate: position.side === "left" ? -3 : 3 }} whileTap={{ scale: .96 }} aria-label={`Open details for ${skill.name}`}><span>{skill.name}</span><b>{skill.percentage}%</b></motion.button>; })}
+      <div className="organic-tree__base"><strong>{category.title}</strong><small>{category.tagline}</small></div>
+    </motion.article>
   );
 }
 
+function SkillModal({ skill, category, onClose }) {
+  useEffect(() => { const handler = (event) => event.key === "Escape" && onClose(); document.body.style.overflow = "hidden"; window.addEventListener("keydown", handler); return () => { document.body.style.overflow = ""; window.removeEventListener("keydown", handler); }; }, [onClose]);
+  return <div className="skill-modal-backdrop" role="presentation" onMouseDown={(event) => event.target === event.currentTarget && onClose()}><motion.div className="skill-modal" role="dialog" aria-modal="true" aria-labelledby="skill-modal-title" initial={{ opacity: 0, scale: .88, y: 20 }} animate={{ opacity: 1, scale: 1, y: 0 }} exit={{ opacity: 0, scale: .88, y: 20 }} style={{ "--modal-color": category.color }}><button className="skill-modal__close" onClick={onClose} aria-label="Close skill details">×</button><span className="skill-modal__eyebrow">{category.title} · {skill.percentage}%</span><h3 id="skill-modal-title">{skill.name}</h3><div className="skill-modal__meter"><span style={{ width: `${skill.percentage}%` }} /></div><div className="skill-modal__body"><div><b>Experience</b><p>{skill.experience}</p></div><div><b>Related Projects</b><p>{skill.projects}</p></div><div><b>Tools &amp; Concepts</b><p>{skill.tools}</p></div></div><button className="skill-modal__done" onClick={() => { playLeafSound("modal"); onClose(); }}>Back to the tree</button></motion.div></div>;
+}
+
+function Skills() {
+  const [selectedSkill, setSelectedSkill] = useState(null);
+  return <section id="skills" className="skills-forest-section relative z-10 py-20"><div className="skills-fireflies" aria-hidden="true"><i /><i /><i /><i /><i /></div><div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8"><motion.header className="skills-forest-heading" initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }}><span>THE SKILLS FOREST</span><h2>Grow Through <em>Code</em></h2><p>Four living branches of my technical journey.</p></motion.header><div className="organic-tree-grid">{skillsData.categories.map((category, index) => <OrganicTree key={category.id} category={category} index={index} activeSkill={selectedSkill?.category.id === category.id ? selectedSkill.skill : null} onSkillClick={(skill, group) => setSelectedSkill({ skill, category: group })} />)}</div><p className="skills-forest-hint">HOVER A SKILL TO WAKE THE BRANCH · CLICK A SKILL FOR PROJECT DETAILS</p><motion.div className="mt-16" initial={{ opacity: 0, y: 30 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }}><h3 className="mb-8 text-3xl font-bold text-white">Core <span className="text-[#D4AF37]">Competencies</span></h3><div className="grid grid-cols-1 gap-6 md:grid-cols-2 lg:grid-cols-3">{skillsData.competencies.map((item) => <GlassCard key={item.title} className="p-6 h-full"><div className="mb-4 h-3 w-3 rounded-full bg-[#86ddd0] shadow-[0_0_16px_#86ddd0]" /><h4 className="mb-2 text-lg font-bold text-white">{item.title}</h4><p className="text-sm leading-relaxed text-foreground-muted">{item.description}</p></GlassCard>)}</div></motion.div></div>{selectedSkill && <SkillModal skill={selectedSkill.skill} category={selectedSkill.category} onClose={() => setSelectedSkill(null)} />}</section>;
+}
+
 export { Skills };
+
 
