@@ -1,217 +1,82 @@
 "use client";
-import { motion } from "framer-motion";
-import { GlassCard } from "@/components/ui/GlassCard";
-import { Award, Calendar, Building2 } from "lucide-react";
+import { useState } from "react";
+import { AnimatePresence, motion } from "framer-motion";
+import { ArrowLeft, ArrowRight, CalendarDays, ExternalLink, MapPin, X } from "lucide-react";
+import "./certifications.css";
+
 const certificationsData = [
-  {
-    id: 11,
-    title: "Python for Data Science, AI & Development",
-    provider: "IBM — via Coursera",
-    date: "Jun 30, 2024",
-    description: "Comprehensive IBM certificate covering Python programming for data science, AI, and application development with practical hands-on learning in data analysis and automation.",
-    image: "image/11.jpeg",
-    skills: ["Python", "Data Science", "AI", "Machine Learning", "Pandas", "Data Analysis"]
-  },
-  {
-    id: 14,
-    title: "The Complete JavaScript Course 2025: From Zero to Expert!",
-    provider: "Udemy",
-    date: "Aug 13, 2026",
-    description: "Complete JavaScript learning journey covering fundamentals, modern ES6+, DOM manipulation, asynchronous programming, and practical real-world project development.",
-    image: "image/14.jpg",
-    skills: ["JavaScript", "ES6+", "DOM", "Async", "Projects", "Web Development"]
-  },
-  {
-    id: 1,
-    title: "Meta Front-End Developer",
-    provider: "Meta — via Coursera (9 Courses)",
-    date: "May 11, 2026",
-    description: "Professional Certificate covering the full front-end stack: HTML, CSS, JavaScript, React Basics, Advanced React, Version Control, UX/UI Principles, Front-End Capstone, and Coding Interview Preparation.",
-    image: "image/1.jpg",
-    skills: ["React.js", "JavaScript", "HTML5", "CSS3", "UX/UI Design", "Version Control"]
-  },
-  {
-    id: 3,
-    title: "Introduction to Software Engineering",
-    provider: "IBM — via Coursera",
-    date: "Oct 16, 2024",
-    description: "Foundations of software engineering including SDLC, agile methodologies, cloud computing basics, and hands-on introduction to programming concepts and tools.",
-    image: "image/3.jpg",
-    skills: ["SDLC", "Agile", "Cloud Computing", "Software Design", "Problem Solving"]
-  },
-  {
-    id: 7,
-    title: "Introduction to Web Development with HTML, CSS, JavaScript",
-    provider: "IBM — via Coursera",
-    date: "Jun 25, 2024",
-    description: "Practical introduction to web development fundamentals, building responsive pages with HTML structure, CSS styling, and JavaScript interactivity.",
-    image: "image/7.jpg",
-    skills: ["HTML", "CSS", "JavaScript", "Responsive Design", "Web Development"]
-  },
-  {
-    id: 8,
-    title: "Foundations of Web Development: CSS, Bootstrap, JS, React",
-    provider: "Proper Dot Institute — via Udemy",
-    date: "Sept 13, 2025",
-    description: "Completion certificate covering modern web development fundamentals with practical training in CSS, Bootstrap responsive layouts, JavaScript interactivity, and core React patterns.",
-    image: "image/10.png",
-    skills: ["CSS", "Bootstrap", "JavaScript", "React", "Responsive Layouts"]
-  },
-  {
-    id: 9,
-    title: "Web Designer — Digital Egypt Youth Program",
-    provider: "NTI / Digital Egypt Youth",
-    date: "Oct 10, 2024",
-    description: "Certificate for successful completion of the Digital Egypt Youth program with a focus on web design, UI principles, freelancing skills, and digital communication tools.",
-    image: "image/9.jpg",
-    skills: ["Web Design", "UI/UX", "Freelancing", "Digital Communication", "Project Delivery"]
-  },
-  {
-    id: 10,
-    title: "Interactivity with JavaScript",
-    provider: "University of Michigan — via Coursera",
-    date: "May 18, 2026",
-    description: "Focused course on making web pages dynamic and interactive using JavaScript, covering DOM events, animations, and creating engaging user experiences.",
-    image: "image/8.jpg",
-    skills: ["JavaScript", "DOM Events", "Animations", "Interactivity", "UX"]
-  },
-  {
-    id: 12,
-    title: "Developing Front-End Apps with React",
-    provider: "IBM — via Coursera",
-    date: "Sep 1, 2024",
-    description: "Hands-on learning path focused on building modern front-end applications with React, component architecture, state management, and responsive UI development.",
-    image: "image/12.jpeg",
-    skills: ["React", "Front-End", "Components", "State Management", "UI Development", "JavaScript"]
-  },
-  {
-    id: 13,
-    title: "Developing Back-End Apps with Node.js and Express",
-    provider: "IBM — via Coursera",
-    date: "Aug 7, 2026",
-    description: "Course focused on server-side development with Node.js and Express, covering APIs, routing, middleware, authentication basics, and backend application architecture.",
-    image: "image/13.png",
-    skills: ["Node.js", "Express", "REST APIs", "Back-End", "Middleware", "Server-side Development"]
-  }
+  { id: 11, title: "Python for Data Science, AI & Development", provider: "IBM — via Coursera", date: "Jun 30, 2024", category: "Data & AI", image: "image/11.jpeg", description: "Python programming for data science, AI, application development, data analysis and automation.", skills: ["Python", "Data Science", "AI", "Pandas"], credential: "IBM-PY-2024-11" },
+  { id: 14, title: "The Complete JavaScript Course 2025", provider: "Udemy", date: "Aug 13, 2026", category: "Development", image: "image/14.jpg", description: "Modern JavaScript, ES6+, DOM manipulation, asynchronous programming and practical projects.", skills: ["JavaScript", "ES6+", "DOM", "Async"], credential: "UDEMY-JS-2026-14" },
+  { id: 1, title: "Meta Front-End Developer", provider: "Meta — via Coursera", date: "May 11, 2026", category: "Featured", image: "image/1.jpg", description: "Professional front-end certificate covering HTML, CSS, JavaScript, React, UX/UI and version control.", skills: ["React.js", "JavaScript", "HTML5", "CSS3"], credential: "META-FE-2026-01" },
+  { id: 3, title: "Introduction to Software Engineering", provider: "IBM — via Coursera", date: "Oct 16, 2024", category: "Engineering", image: "image/3.jpg", description: "Software engineering foundations, SDLC, agile methodologies, cloud computing and programming concepts.", skills: ["SDLC", "Agile", "Cloud", "Software Design"], credential: "IBM-SE-2024-03" },
+  { id: 7, title: "Introduction to Web Development", provider: "IBM — via Coursera", date: "Jun 25, 2024", category: "Development", image: "image/7.jpg", description: "Responsive web development fundamentals with HTML, CSS and JavaScript interactivity.", skills: ["HTML", "CSS", "JavaScript", "Responsive Design"], credential: "IBM-WEB-2024-07" },
+  { id: 8, title: "Foundations of Web Development", provider: "Proper Dot Institute — via Udemy", date: "Sept 13, 2025", category: "Development", image: "image/10.png", description: "CSS, Bootstrap, JavaScript, responsive layouts and core React patterns.", skills: ["CSS", "Bootstrap", "JavaScript", "React"], credential: "PDI-WEB-2025-08" },
+  { id: 9, title: "Web Designer — Digital Egypt Youth", provider: "NTI / Digital Egypt Youth", date: "Oct 10, 2024", category: "Design", image: "image/9.jpg", description: "Web design, UI principles, freelancing skills and digital communication tools.", skills: ["Web Design", "UI/UX", "Freelancing"], credential: "NTI-DESIGN-2024-09" },
+  { id: 10, title: "Interactivity with JavaScript", provider: "University of Michigan — via Coursera", date: "May 18, 2026", category: "Development", image: "image/8.jpg", description: "DOM events, animations and creating engaging interactive user experiences.", skills: ["JavaScript", "DOM Events", "Animations", "UX"], credential: "UMICH-JS-2026-10" },
+  { id: 12, title: "Developing Front-End Apps with React", provider: "IBM — via Coursera", date: "Sep 1, 2024", category: "Engineering", image: "image/12.jpeg", description: "React component architecture, state management and responsive UI development.", skills: ["React", "Components", "State Management"], credential: "IBM-REACT-2024-12" },
+  { id: 13, title: "Developing Back-End Apps with Node.js", provider: "IBM — via Coursera", date: "Aug 7, 2026", category: "Engineering", image: "image/13.png", description: "Node.js, Express, APIs, routing, middleware and backend architecture.", skills: ["Node.js", "Express", "REST APIs"], credential: "IBM-NODE-2026-13" },
 ];
+
 function Certifications() {
-  return <section id="certifications" className="min-h-screen py-20 px-4 md:px-8 lg:px-12 relative">
-      {/* Section Background */}
-      <div className="absolute inset-0 -z-10">
-        <div className="absolute top-0 left-1/4 w-96 h-96 bg-gradient-to-r from-[#D4AF37]/10 to-transparent rounded-full blur-3xl" />
-        <div className="absolute bottom-0 right-1/4 w-96 h-96 bg-gradient-to-l from-[#D4AF37]/10 to-transparent rounded-full blur-3xl" />
-      </div>
+  const [selected, setSelected] = useState(null);
 
-      <div className="max-w-7xl mx-auto">
-        {/* Header */}
-        <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.8 }}
-          className="text-center mb-16"
-        >
-          <div className="inline-flex items-center justify-center gap-3 mb-4 px-6 py-2 bg-gradient-to-r from-[#D4AF37]/10 to-transparent border border-[#D4AF37]/20 rounded-full">
-            <Award size={20} className="text-[#D4AF37]" />
-            <span className="text-[#D4AF37] font-semibold">Certifications</span>
+  return (
+    <section id="certifications" className="passport-section">
+      <div className="passport-section__inner">
+        <header className="passport-header">
+          <div><p className="passport-kicker">CERTIFICATES / LEARNING JOURNEY</p><h2>My Certificate<br /><em>Passport</em></h2><p>Every certificate is a destination in my continuous learning journey.</p></div>
+          <div className="passport-compass">✧<span>EXPLORE<br />LEARN<br />GROW</span></div>
+        </header>
+
+        <div className="passport-workspace">
+          <div className="passport-overview">
+            <div className="passport-route" aria-hidden="true"><span className="route-line" /><span className="route-plane">✈</span></div>
+            <div className="passport-grid">
+              {certificationsData.map((certificate, index) => <PassportCard key={certificate.id} certificate={certificate} index={index} selected={selected?.id === certificate.id} onSelect={setSelected} />)}
+            </div>
           </div>
-          <h2 className="text-4xl md:text-5xl lg:text-6xl font-bold text-white mb-4">
-            Professional Certifications
-          </h2>
-          <p className="text-foreground-muted text-lg max-w-2xl mx-auto">
-            Continuous learning and professional development through industry-recognized certifications and specialized training programs.
-          </p>
-        </motion.div>
-
-        {/* Certifications Grid */}
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
-          {certificationsData.map((cert, index) => (
-            <motion.div
-              key={cert.id}
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.8, delay: index * 0.1 }}
-            >
-              <GlassCard className="h-full overflow-hidden hover:shadow-2xl transition-all duration-300 group cursor-pointer hover:border-[#D4AF37]/40">
-                <div className="flex flex-col h-full">
-                  {/* Certificate Image with Title Overlay */}
-                  <div className="relative w-full overflow-hidden rounded-t-xl" style={{ height: "220px" }}>
-                    <img
-                      src={cert.image}
-                      alt={cert.title}
-                      className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
-                    />
-                    {/* Dark overlay */}
-                    <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent" />
-                    {/* Certificate name on image */}
-                    <div className="absolute bottom-0 left-0 right-0 p-4">
-                      <span className="inline-flex items-center gap-2 px-3 py-1 bg-[#D4AF37]/20 border border-[#D4AF37]/50 text-[#D4AF37] text-xs font-semibold rounded-full backdrop-blur-sm mb-2">
-                        <Award size={12} />
-                        Certificate
-                      </span>
-                      <h3 className="text-lg font-bold text-white leading-tight drop-shadow-lg">
-                        {cert.title}
-                      </h3>
-                    </div>
-                  </div>
-
-                  {/* Certificate Info */}
-                  <div className="p-6 flex flex-col justify-between flex-1">
-                    <div className="absolute top-4 right-4 text-[#D4AF37]/80 text-sm font-bold tracking-[0.2em] uppercase">
-                      {cert.id}
-                    </div>
-                    {/* Provider & Date */}
-                    <div className="mb-4">
-                      <div className="flex items-center gap-2 mb-2 text-foreground-muted">
-                        <Building2 size={16} className="text-[#D4AF37] flex-shrink-0" />
-                        <span className="text-sm">{cert.provider}</span>
-                      </div>
-                      <div className="flex items-center gap-2 text-foreground-muted">
-                        <Calendar size={16} className="text-[#D4AF37] flex-shrink-0" />
-                        <span className="text-sm">{cert.date}</span>
-                      </div>
-                    </div>
-
-                    {/* Description */}
-                    <p className="text-foreground-muted text-sm mb-5 leading-relaxed">
-                      {cert.description}
-                    </p>
-
-                    {/* Skills */}
-                    <div className="flex flex-wrap gap-2">
-                      {cert.skills.map((skill) => (
-                        <span
-                          key={skill}
-                          className="px-3 py-1 bg-[#D4AF37]/10 border border-[#D4AF37]/30 text-[#D4AF37] text-xs rounded-full hover:bg-[#D4AF37]/20 transition-colors"
-                        >
-                          {skill}
-                        </span>
-                      ))}
-                    </div>
-                  </div>
-                </div>
-              </GlassCard>
-            </motion.div>
-          ))}
+          <div className="passport-live-preview">
+            <PassportPanel certificate={selected || certificationsData[0]} certificates={certificationsData} onClose={() => setSelected(null)} onChange={setSelected} embedded />
+          </div>
         </div>
 
-        {/* Additional Info */}
-        <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.8, delay: 0.4 }}
-          className="mt-16 p-8 glass-effect-strong rounded-2xl border border-[#D4AF37]/20"
-        >
-          <h3 className="text-2xl font-bold text-white mb-4">Commitment to Excellence</h3>
-          <p className="text-foreground-muted leading-relaxed mb-4">
-            I am dedicated to continuous professional development and staying current with industry trends. These certifications represent my commitment to mastering modern web development technologies, design principles, and best practices.
-          </p>
-          <p className="text-foreground-muted leading-relaxed">
-            Each certification has equipped me with practical skills and knowledge that I apply daily in building high-quality, responsive, and user-friendly web applications.
-          </p>
-        </motion.div>
+        <footer className="passport-footer"><span>COLLECTED MILESTONES</span><span>{String(certificationsData.length).padStart(2, "0")} CERTIFICATES</span><span>KEEP GOING →</span></footer>
       </div>
-    </section>;
+
+    </section>
+  );
 }
-export {
-  Certifications
-};
+
+function PassportCard({ certificate, index, selected, onSelect }) {
+  const kind = index % 4 === 0 ? "cover" : index % 4 === 1 ? "ticket" : index % 4 === 2 ? "stamp" : "ticket ticket-light";
+  return <motion.button type="button" className={`passport-card passport-card--${kind} ${selected ? "is-selected" : ""}`} onClick={() => onSelect(certificate)} whileHover={{ y: -8, rotate: index % 2 ? 1 : -1 }} transition={{ duration: .25 }}>
+    <div className="passport-card__art">{kind === "cover" ? <><span className="passport-card__globe">◎</span><strong>MY<br />CERTIFICATE<br />PASSPORT</strong><small>LEARNING JOURNEY</small></> : kind === "stamp" ? <><span className="passport-stamp">✈<br /><b>{certificate.category}</b><br />EXPLORE</span><strong>{certificate.title}</strong></> : <><span className="passport-ticket-route">✈ ────── ✈</span><strong>{certificate.title}</strong><small>{certificate.provider}</small></>}</div>
+    <div className="passport-card__caption"><span>{String(index + 1).padStart(2, "0")}</span><b>{certificate.category}</b></div>
+  </motion.button>;
+}
+
+function PassportPanel({ certificate, certificates, onClose, onChange, embedded = false }) {
+  const index = certificates.findIndex((item) => item.id === certificate.id);
+  const change = (direction) => onChange(certificates[(index + direction + certificates.length) % certificates.length]);
+  return <motion.div className={`passport-panel-backdrop ${embedded ? "passport-panel-backdrop--embedded" : ""}`} initial={embedded ? false : { opacity: 0 }} animate={embedded ? false : { opacity: 1 }} exit={embedded ? undefined : { opacity: 0 }} onClick={embedded ? undefined : onClose}>
+    <motion.aside className={`passport-panel ${embedded ? "passport-panel--embedded" : ""}`} initial={embedded ? false : { x: "100%" }} animate={embedded ? false : { x: 0 }} exit={embedded ? undefined : { x: "100%" }} transition={{ type: "spring", damping: 28, stiffness: 240 }} onClick={(event) => event.stopPropagation()}>
+      {!embedded && <button type="button" className="passport-panel__close" onClick={onClose} aria-label="Close certificate details"><X size={21} /></button>}
+      <div className="passport-panel__heading"><span className="passport-panel__compass">✧</span><div><span>MY</span><h3>CERTIFICATE<br />PASSPORT</h3></div></div>
+      <motion.div className="passport-spread" key={certificate.id} initial={{ opacity: 0, scale: .97, y: 10 }} animate={{ opacity: 1, scale: 1, y: 0 }} transition={{ duration: .4, ease: [0.22, 1, 0.36, 1] }}>
+        <div className="passport-page passport-page--details">
+          <p className="page-label">CERTIFICATE DETAILS</p><h4>{certificate.title}</h4><p className="page-description">{certificate.description}</p>
+          <div className="page-meta"><span><CalendarDays size={14} /> Issued on<strong>{certificate.date}</strong></span><span><MapPin size={14} /> Category<strong>{certificate.category}</strong></span></div>
+          <p className="page-label page-label--skills">SKILLS</p><div className="page-skills">{certificate.skills.map((skill) => <span key={skill}>{skill}</span>)}</div>
+          <button type="button" className="certificate-image-button" onClick={() => window.open(certificate.image, "_blank", "noopener,noreferrer")}><img src={certificate.image} alt={`${certificate.title} certificate`} /><span>VIEW CERTIFICATE <ExternalLink size={13} /></span></button>
+        </div>
+        <div className="passport-page passport-page--provider">
+          <p className="page-label">ISSUED BY</p><div className="provider-seal">✧</div><h4>{certificate.provider.split(" — ")[0]}</h4><p className="provider-via">{certificate.provider.includes(" — ") ? `— ${certificate.provider.split(" — ")[1]} —` : "— Official Certificate —"}</p><div className="provider-divider" /><p className="provider-copy">This certificate recognizes the successful completion of the program and the skills developed along the learning journey.</p><div className="provider-info"><span>ISSUE DATE<strong>{certificate.date}</strong></span><span>CREDENTIAL ID<strong>{certificate.credential}</strong></span></div><div className="verified-stamp">✈ VERIFIED<br />CERTIFICATE</div>
+        </div>
+      </motion.div>
+      <div className="passport-panel__navigation"><button type="button" onClick={() => change(-1)}><ArrowLeft size={16} /> PREVIOUS</button><span>{String(index + 1).padStart(2, "0")} / {String(certificates.length).padStart(2, "0")}</span><button type="button" onClick={() => change(1)}>NEXT <ArrowRight size={16} /></button></div>
+    </motion.aside>
+  </motion.div>;
+}
+
+export { Certifications };
+export { certificationsData };
