@@ -7,7 +7,7 @@ const educationData = [
   {
     school: "Cairo University",
     degree: "Bachelor of Science in Computer Science",
-    year: "Expected Jan 2026",
+    
     gpa: "In Progress",
     achievements: [
       "Strong foundation in computer science fundamentals",

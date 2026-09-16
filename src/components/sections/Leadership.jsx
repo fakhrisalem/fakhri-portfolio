@@ -1,111 +1,250 @@
-"use client";
+import { useEffect, useRef, useState } from "react";
 import { motion } from "framer-motion";
 import { GlassCard } from "@/components/ui/GlassCard";
-import { Award, Users, Trophy, Zap } from "lucide-react";
+import { Code2, GraduationCap, Volume2, VolumeX, Users } from "lucide-react";
 import { staggerContainer, staggerItem } from "@/lib/animations";
-const leadershipData = [
+
+const highlightsData = [
   {
     icon: Users,
-    title: "Graduation Project Team Lead",
-    description: "Led a team of 5 developers in creating an innovative HR management system. Responsible for architecture decisions, code reviews, and project delivery.",
+    eyebrow: "MENTORSHIP",
+    title: "Front-End Mentor",
+    description:
+      "Mentored 50+ junior developers in React.js, TypeScript, Redux, and responsive design through technical guidance and code reviews.",
+    stat: "50+",
+    statLabel: "Junior Developers",
     achievements: [
-      "Successfully delivered project on time",
-      "Mentored 2 junior developers",
-      "Implemented best practices and design patterns"
-    ]
+      "Mentored 50+ junior developers",
+      "Provided guidance in React.js and TypeScript",
+      "Reviewed code and encouraged clean coding practices",
+    ],
   },
   {
-    icon: Trophy,
-    title: "Hackathon Winner",
-    description: "Won multiple hackathon competitions, including TechMasters 2022 and Innovation Summit 2023 with innovative web solutions.",
+    icon: GraduationCap,
+    eyebrow: "TEACHING",
+    title: "Programming Instructor",
+    description:
+      "Taught programming fundamentals, problem-solving, and algorithmic thinking to learners with different skill levels.",
+    stat: "3",
+    statLabel: "Core Languages",
     achievements: [
-      "1st place - TechMasters Hackathon 2022",
-      "2nd place - Innovation Summit 2023",
-      "Developed winning project in 24 hours"
-    ]
+      "Taught Python, C++, and JavaScript",
+      "Explained programming fundamentals and algorithms",
+      "Supported learners with different technical backgrounds",
+    ],
   },
   {
-    icon: Award,
-    title: "Volunteer Tech Mentor",
-    description: "Actively volunteering to teach web development to underprivileged students. Conducting free workshops and providing mentorship.",
+    icon: Code2,
+    eyebrow: "PROBLEM SOLVING",
+    title: "Algorithms & Problem Solving",
+    description:
+      "Solved more than 100 algorithmic problems on LeetCode while strengthening data structures, algorithms, and problem-solving skills.",
+    stat: "100+",
+    statLabel: "LeetCode Problems",
     achievements: [
-      "Taught 50+ students programming basics",
-      "Organized monthly tech workshops",
-      "Helped 5 students land their first dev jobs"
-    ]
+      "Solved 100+ LeetCode problems",
+      "Practiced data structures and algorithms",
+      "Covered trees, graphs, sorting, and dynamic programming",
+    ],
   },
-  {
-    icon: Zap,
-    title: "Open Source Contributor",
-    description: "Active contributor to popular open-source projects with 200+ merged pull requests and 3K+ GitHub stars on personal projects.",
-    achievements: [
-      "200+ merged pull requests across projects",
-      "3K+ stars on GitHub repositories",
-      "Maintained 5 open-source libraries"
-    ]
-  }
 ];
+
+function FlipCard({ item, index, flipped, onFlip, soundEnabled, playFlipSound }) {
+  const Icon = item.icon;
+  const [isPaused, setIsPaused] = useState(false);
+
+  useEffect(() => {
+    if (isPaused) return undefined;
+
+    const timer = window.setTimeout(() => {
+      onFlip(index);
+      if (soundEnabled) playFlipSound();
+    }, 4300 + index * 850);
+
+    return () => window.clearTimeout(timer);
+  }, [flipped, index, isPaused, onFlip, playFlipSound, soundEnabled]);
+
+  const handleFlip = () => {
+    onFlip(index);
+    playFlipSound();
+  };
+
+  return (
+    <motion.div
+      variants={staggerItem}
+      className="h-[390px] [perspective:1200px] sm:h-[365px]"
+      onMouseEnter={() => setIsPaused(true)}
+      onMouseLeave={() => setIsPaused(false)}
+    >
+      <button
+        type="button"
+        aria-label={`Flip ${item.title} card`}
+        onClick={handleFlip}
+        className="group relative h-full w-full cursor-pointer text-left focus:outline-none focus-visible:ring-2 focus-visible:ring-[#D4AF37] focus-visible:ring-offset-4 focus-visible:ring-offset-black"
+      >
+        <div
+          className={`relative h-full w-full transition-transform duration-1000 [transform-style:preserve-3d] ${
+            flipped ? "[transform:rotateY(180deg)]" : ""
+          }`}
+        >
+          <div className="absolute inset-0 [backface-visibility:hidden]">
+            <GlassCard className="relative flex h-full flex-col overflow-hidden border-t-2 border-[#D4AF37] p-5 transition-all duration-300 group-hover:border-[#e8c547] group-hover:shadow-[0_20px_50px_rgba(212,175,55,0.16)] sm:p-7">
+              <div className="pointer-events-none absolute -right-12 -top-12 h-36 w-36 rounded-full bg-[#D4AF37]/10 blur-3xl transition-all duration-500 group-hover:bg-[#D4AF37]/20" />
+              <div className="relative flex items-start gap-4">
+                <div className="flex h-14 w-14 shrink-0 items-center justify-center rounded-xl border border-[#D4AF37]/20 bg-[#D4AF37]/10 shadow-[0_0_24px_rgba(212,175,55,0.08)]">
+                  <Icon size={27} className="text-[#D4AF37]" />
+                </div>
+                <div>
+                  <p className="mb-1 text-[10px] font-semibold tracking-[0.2em] text-[#D4AF37]/80">
+                    {item.eyebrow}
+                  </p>
+                  <h3 className="text-xl font-bold leading-tight text-white">
+                    {item.title}
+                  </h3>
+                </div>
+              </div>
+              <p className="relative my-6 flex-1 leading-relaxed text-foreground-muted">
+                {item.description}
+              </p>
+              <div className="relative flex items-center justify-between border-t border-[#D4AF37]/10 pt-4 text-xs tracking-wide text-[#D4AF37]/80">
+                <span>CLICK TO EXPLORE</span>
+                <span className="text-lg">↻</span>
+              </div>
+            </GlassCard>
+          </div>
+
+          <div className="absolute inset-0 [backface-visibility:hidden] [transform:rotateY(180deg)]">
+            <GlassCard className="relative flex h-full flex-col overflow-hidden border-b-2 border-[#D4AF37] bg-[#0f172a]/80 p-5 shadow-[0_20px_50px_rgba(212,175,55,0.12)] sm:p-7">
+              <div className="pointer-events-none absolute -bottom-16 -left-10 h-36 w-36 rounded-full bg-[#D4AF37]/10 blur-3xl" />
+              <div className="relative mb-5 flex items-center justify-between">
+                <div>
+                  <p className="mb-1 text-[10px] font-semibold tracking-[0.2em] text-[#D4AF37]/80">
+                    KEY HIGHLIGHTS
+                  </p>
+                  <h3 className="text-xl font-bold text-white">{item.title}</h3>
+                </div>
+                <div className="text-right">
+                  <strong className="block text-3xl font-bold text-[#D4AF37]">{item.stat}</strong>
+                  <span className="text-[10px] text-foreground-muted">{item.statLabel}</span>
+                </div>
+              </div>
+              <div className="relative flex-1 space-y-3">
+                {item.achievements.map((achievement) => (
+                  <div key={achievement} className="flex items-start gap-2 text-foreground-muted">
+                    <span className="mt-0.5 font-bold text-[#D4AF37]">✓</span>
+                    <span className="text-sm leading-relaxed">{achievement}</span>
+                  </div>
+                ))}
+              </div>
+              <div className="relative border-t border-[#D4AF37]/10 pt-4 text-xs tracking-wide text-[#D4AF37]/80">
+                CLICK TO RETURN
+              </div>
+            </GlassCard>
+          </div>
+        </div>
+      </button>
+    </motion.div>
+  );
+}
+
 function Leadership() {
-  return <section id="leadership" className="py-20 relative z-10">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        {
-    /* Section Title */
-  }
+  const [flippedCards, setFlippedCards] = useState(() => highlightsData.map(() => false));
+  const [soundEnabled, setSoundEnabled] = useState(true);
+  const audioContextRef = useRef(null);
+
+  const playFlipSound = () => {
+    if (!soundEnabled || typeof window === "undefined") return;
+
+    try {
+      const AudioContext = window.AudioContext || window.webkitAudioContext;
+      if (!AudioContext) return;
+      const audioContext = audioContextRef.current || new AudioContext();
+      audioContextRef.current = audioContext;
+      if (audioContext.state === "suspended") audioContext.resume();
+
+      const oscillator = audioContext.createOscillator();
+      const gain = audioContext.createGain();
+      oscillator.type = "sine";
+      oscillator.frequency.setValueAtTime(520, audioContext.currentTime);
+      oscillator.frequency.exponentialRampToValueAtTime(760, audioContext.currentTime + 0.08);
+      gain.gain.setValueAtTime(0.0001, audioContext.currentTime);
+      gain.gain.exponentialRampToValueAtTime(0.045, audioContext.currentTime + 0.012);
+      gain.gain.exponentialRampToValueAtTime(0.0001, audioContext.currentTime + 0.12);
+      oscillator.connect(gain);
+      gain.connect(audioContext.destination);
+      oscillator.start();
+      oscillator.stop(audioContext.currentTime + 0.13);
+    } catch {
+      // Audio is an enhancement; the cards remain fully usable if it is unavailable.
+    }
+  };
+
+  const toggleCard = (index) => {
+    setFlippedCards((current) =>
+      current.map((isFlipped, cardIndex) => (cardIndex === index ? !isFlipped : isFlipped)),
+    );
+  };
+
+  const toggleSound = () => {
+    setSoundEnabled((enabled) => !enabled);
+  };
+
+  return (
+    <section id="leadership" className="relative z-10 py-20">
+      <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
         <motion.div
-    initial={{ opacity: 0, y: 20 }}
-    whileInView={{ opacity: 1, y: 0 }}
-    transition={{ duration: 0.6 }}
-    viewport={{ once: true }}
-    className="mb-16"
-  >
-          <h2 className="text-4xl sm:text-5xl md:text-6xl font-bold mb-4">
-            <span className="text-white">Leadership</span>{" "}
-            <span className="text-[#D4AF37]">& Activities</span>
-          </h2>
-          <div className="w-20 h-1 bg-gradient-to-r from-[#D4AF37] to-transparent rounded-full" />
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.6 }}
+          viewport={{ once: true }}
+          className="mb-12 flex flex-col justify-between gap-6 sm:flex-row sm:items-end"
+        >
+          <div>
+            <p className="mb-3 text-sm font-semibold tracking-[0.28em] text-[#D4AF37]">
+              PROFESSIONAL HIGHLIGHTS
+            </p>
+            <h2 className="mb-4 text-4xl font-bold sm:text-5xl md:text-6xl">
+              <span className="text-white">Professional</span>{" "}
+              <span className="text-[#D4AF37]">Highlights</span>
+            </h2>
+            <div className="h-1 w-20 rounded-full bg-gradient-to-r from-[#D4AF37] to-transparent" />
+          </div>
+
+          <button
+            type="button"
+            onClick={toggleSound}
+            aria-label={soundEnabled ? "Mute card flip sound" : "Enable card flip sound"}
+            className="inline-flex w-fit items-center gap-2 rounded-full border border-[#D4AF37]/20 bg-[#D4AF37]/5 px-4 py-2 text-xs tracking-wide text-[#D4AF37] transition-colors hover:bg-[#D4AF37]/15"
+          >
+            {soundEnabled ? <Volume2 size={15} /> : <VolumeX size={15} />}
+            {soundEnabled ? "SOUND ON" : "SOUND OFF"}
+          </button>
         </motion.div>
 
-        {
-    /* Leadership Grid */
-  }
         <motion.div
-    variants={staggerContainer}
-    initial="hidden"
-    whileInView="visible"
-    viewport={{ once: true }}
-    className="grid grid-cols-1 md:grid-cols-2 gap-8"
-  >
-          {leadershipData.map((item, index) => {
-    const Icon = item.icon;
-    return <motion.div key={index} variants={staggerItem}>
-                <GlassCard className="p-5 sm:p-8 h-full border-t-2 border-[#D4AF37]">
-                  <div className="flex items-center gap-4 mb-6">
-                    <div className="w-14 h-14 rounded-lg bg-[rgba(212,175,55,0.1)] flex items-center justify-center">
-                      <Icon size={28} className="text-[#D4AF37]" />
-                    </div>
-                    <h3 className="text-xl font-bold text-white">{item.title}</h3>
-                  </div>
-
-                  <p className="text-foreground-muted mb-6 leading-relaxed">
-                    {item.description}
-                  </p>
-
-                  <div className="space-y-2">
-                    {item.achievements.map((achievement, idx) => <div
-      key={idx}
-      className="flex items-start gap-2 text-foreground-muted"
-    >
-                        <span className="text-[#D4AF37] font-bold mt-0.5">✓</span>
-                        <span className="text-sm">{achievement}</span>
-                      </div>)}
-                  </div>
-                </GlassCard>
-              </motion.div>;
-  })}
+          variants={staggerContainer}
+          initial="hidden"
+          whileInView="visible"
+          viewport={{ once: true }}
+          className="grid grid-cols-1 gap-8 md:grid-cols-2 lg:grid-cols-3"
+        >
+          {highlightsData.map((item, index) => (
+            <FlipCard
+              key={item.title}
+              item={item}
+              index={index}
+              flipped={flippedCards[index]}
+              onFlip={toggleCard}
+              soundEnabled={soundEnabled}
+              playFlipSound={playFlipSound}
+            />
+          ))}
         </motion.div>
       </div>
-    </section>;
+    </section>
+  );
 }
-export {
-  Leadership
-};
+
+export { Leadership };
+export default Leadership;
+
