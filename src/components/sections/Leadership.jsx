@@ -1,7 +1,7 @@
-import { useEffect, useRef, useState } from "react";
+import { useEffect, useState } from "react";
 import { motion } from "framer-motion";
 import { GlassCard } from "@/components/ui/GlassCard";
-import { Code2, GraduationCap, Volume2, VolumeX, Users } from "lucide-react";
+import { Code2, GraduationCap, Users } from "lucide-react";
 import { staggerContainer, staggerItem } from "@/lib/animations";
 
 const highlightsData = [
@@ -49,7 +49,7 @@ const highlightsData = [
   },
 ];
 
-function FlipCard({ item, index, flipped, onFlip, soundEnabled, playFlipSound }) {
+function FlipCard({ item, index, flipped, onFlip }) {
   const Icon = item.icon;
   const [isPaused, setIsPaused] = useState(false);
 
@@ -58,16 +58,10 @@ function FlipCard({ item, index, flipped, onFlip, soundEnabled, playFlipSound })
 
     const timer = window.setTimeout(() => {
       onFlip(index);
-      if (soundEnabled) playFlipSound();
     }, 4300 + index * 850);
 
     return () => window.clearTimeout(timer);
-  }, [flipped, index, isPaused, onFlip, playFlipSound, soundEnabled]);
-
-  const handleFlip = () => {
-    onFlip(index);
-    playFlipSound();
-  };
+  }, [flipped, index, isPaused, onFlip]);
 
   return (
     <motion.div
@@ -79,7 +73,7 @@ function FlipCard({ item, index, flipped, onFlip, soundEnabled, playFlipSound })
       <button
         type="button"
         aria-label={`Flip ${item.title} card`}
-        onClick={handleFlip}
+        onClick={() => onFlip(index)}
         className="group relative h-full w-full cursor-pointer text-left focus:outline-none focus-visible:ring-2 focus-visible:ring-[#D4AF37] focus-visible:ring-offset-4 focus-visible:ring-offset-black"
       >
         <div
@@ -149,44 +143,11 @@ function FlipCard({ item, index, flipped, onFlip, soundEnabled, playFlipSound })
 
 function Leadership() {
   const [flippedCards, setFlippedCards] = useState(() => highlightsData.map(() => false));
-  const [soundEnabled, setSoundEnabled] = useState(true);
-  const audioContextRef = useRef(null);
-
-  const playFlipSound = () => {
-    if (!soundEnabled || typeof window === "undefined") return;
-
-    try {
-      const AudioContext = window.AudioContext || window.webkitAudioContext;
-      if (!AudioContext) return;
-      const audioContext = audioContextRef.current || new AudioContext();
-      audioContextRef.current = audioContext;
-      if (audioContext.state === "suspended") audioContext.resume();
-
-      const oscillator = audioContext.createOscillator();
-      const gain = audioContext.createGain();
-      oscillator.type = "sine";
-      oscillator.frequency.setValueAtTime(520, audioContext.currentTime);
-      oscillator.frequency.exponentialRampToValueAtTime(760, audioContext.currentTime + 0.08);
-      gain.gain.setValueAtTime(0.0001, audioContext.currentTime);
-      gain.gain.exponentialRampToValueAtTime(0.045, audioContext.currentTime + 0.012);
-      gain.gain.exponentialRampToValueAtTime(0.0001, audioContext.currentTime + 0.12);
-      oscillator.connect(gain);
-      gain.connect(audioContext.destination);
-      oscillator.start();
-      oscillator.stop(audioContext.currentTime + 0.13);
-    } catch {
-      // Audio is an enhancement; the cards remain fully usable if it is unavailable.
-    }
-  };
 
   const toggleCard = (index) => {
     setFlippedCards((current) =>
       current.map((isFlipped, cardIndex) => (cardIndex === index ? !isFlipped : isFlipped)),
     );
-  };
-
-  const toggleSound = () => {
-    setSoundEnabled((enabled) => !enabled);
   };
 
   return (
@@ -197,28 +158,16 @@ function Leadership() {
           whileInView={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6 }}
           viewport={{ once: true }}
-          className="mb-12 flex flex-col justify-between gap-6 sm:flex-row sm:items-end"
+          className="mb-12"
         >
-          <div>
-            <p className="mb-3 text-sm font-semibold tracking-[0.28em] text-[#D4AF37]">
-              PROFESSIONAL HIGHLIGHTS
-            </p>
-            <h2 className="mb-4 text-4xl font-bold sm:text-5xl md:text-6xl">
-              <span className="text-white">Professional</span>{" "}
-              <span className="text-[#D4AF37]">Highlights</span>
-            </h2>
-            <div className="h-1 w-20 rounded-full bg-gradient-to-r from-[#D4AF37] to-transparent" />
-          </div>
-
-          <button
-            type="button"
-            onClick={toggleSound}
-            aria-label={soundEnabled ? "Mute card flip sound" : "Enable card flip sound"}
-            className="inline-flex w-fit items-center gap-2 rounded-full border border-[#D4AF37]/20 bg-[#D4AF37]/5 px-4 py-2 text-xs tracking-wide text-[#D4AF37] transition-colors hover:bg-[#D4AF37]/15"
-          >
-            {soundEnabled ? <Volume2 size={15} /> : <VolumeX size={15} />}
-            {soundEnabled ? "SOUND ON" : "SOUND OFF"}
-          </button>
+          <p className="mb-3 text-sm font-semibold tracking-[0.28em] text-[#D4AF37]">
+            PROFESSIONAL HIGHLIGHTS
+          </p>
+          <h2 className="mb-4 text-4xl font-bold sm:text-5xl md:text-6xl">
+            <span className="text-white">Professional</span>{" "}
+            <span className="text-[#D4AF37]">Highlights</span>
+          </h2>
+          <div className="h-1 w-20 rounded-full bg-gradient-to-r from-[#D4AF37] to-transparent" />
         </motion.div>
 
         <motion.div
@@ -235,8 +184,6 @@ function Leadership() {
               index={index}
               flipped={flippedCards[index]}
               onFlip={toggleCard}
-              soundEnabled={soundEnabled}
-              playFlipSound={playFlipSound}
             />
           ))}
         </motion.div>
