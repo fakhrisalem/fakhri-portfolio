@@ -10,7 +10,7 @@ const socials = [
   { icon: Linkedin, label: "LinkedIn", href: "https://www.linkedin.com/in/monafakhri" },
   { icon: Mail, label: "Email", href: "mailto:monafakhri50@gmail.com" },
   { icon: MessageCircle, label: "WhatsApp", href: "https://wa.me/201154926990" },
-  { icon: Briefcase, label: "Portfolio", action: "enter" }, // clicking this enters the site, like the button below
+  { icon: Briefcase, label: "Portfolio", action: "enter" },
 ];
 
 import { useRef, useState } from "react";
@@ -29,7 +29,6 @@ export function WelcomeScreen({ show, onEnter }) {
   }
 
   const onOverlayComplete = () => {
-    // after the overlay finished expanding, call onEnter to remove welcome screen
     onEnter()
   }
 
@@ -43,10 +42,8 @@ export function WelcomeScreen({ show, onEnter }) {
           transition={{ duration: 0.8, ease: "easeInOut" }}
           className="fixed inset-0 z-[100] bg-black flex items-center justify-center overflow-hidden"
         >
-          {/* Hidden photo, revealed by the cursor as a "flashlight" */}
           <SpotlightBackground image="image/CAI.webp" radius={220} />
 
-          {/* thin gold vignette so the UI stays readable even when the spotlight passes behind it */}
           <div className="absolute inset-0 bg-gradient-to-b from-black/70 via-black/30 to-black/80 pointer-events-none" />
 
           <div className="relative z-10 flex flex-col items-center gap-6 px-6 text-center">
@@ -91,7 +88,6 @@ export function WelcomeScreen({ show, onEnter }) {
               {socials.map((s, i) => {
                 const Icon = s.icon;
                 return (
-                  // outer: handles the one-time staggered entrance
                   <motion.div
                     key={s.label}
                     variants={{
@@ -99,7 +95,6 @@ export function WelcomeScreen({ show, onEnter }) {
                       show: { opacity: 1, y: 0, scale: 1, transition: { duration: 0.5, ease: "easeOut" } },
                     }}
                   >
-                    {/* middle: continuous idle float, offset per icon so they don't move in sync */}
                     <motion.div
                       animate={{ y: [0, -6, 0] }}
                       transition={{
@@ -128,7 +123,6 @@ export function WelcomeScreen({ show, onEnter }) {
                           border: "1px solid rgba(212,175,55,0.35)",
                         }}
                       >
-                        {/* soft pulsing ring behind the icon */}
                         <motion.span
                           className="absolute inset-0 rounded-full pointer-events-none"
                           style={{ background: "rgba(212,175,55,0.35)" }}
@@ -168,7 +162,6 @@ export function WelcomeScreen({ show, onEnter }) {
             >
               ENTER PORTFOLIO
             </motion.button>
-            {/* expanding overlay transition */}
             {leaving && origin && (
               <motion.div
                 initial={{ scale: 0, opacity: 0.95 }}

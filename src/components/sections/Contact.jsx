@@ -37,7 +37,6 @@ function Contact() {
   return <section id="contact" className="py-20 relative z-10">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         {
-    /* Section Title */
   }
         <motion.div
     initial={{ opacity: 0, y: 20 }}
@@ -57,11 +56,9 @@ function Contact() {
         </motion.div>
 
         {
-    /* Contact Grid */
   }
         <div className="grid grid-cols-1 lg:grid-cols-3 gap-8 mb-16">
           {
-    /* Contact Info */
   }
           <motion.div
     initial={{ opacity: 0, x: -50 }}
@@ -71,7 +68,6 @@ function Contact() {
     className="space-y-6"
   >
             {
-    /* Email */
   }
             <GlassCard className="p-6">
               <div className="flex items-center gap-4">
@@ -91,7 +87,6 @@ function Contact() {
             </GlassCard>
 
             {
-    /* Phone */
   }
             <GlassCard className="p-6">
               <div className="flex items-center gap-4">
@@ -111,7 +106,6 @@ function Contact() {
             </GlassCard>
 
             {
-    /* Location */
   }
             <GlassCard className="p-6">
               <div className="flex items-center gap-4">
@@ -126,7 +120,6 @@ function Contact() {
             </GlassCard>
 
             {
-    /* Social Links */
   }
             <div>
               <h3 className="text-white font-semibold mb-4">Connect With Me</h3>
@@ -154,7 +147,6 @@ function Contact() {
             </div>
 
             {
-    /* Download CV */
   }
             <PremiumButton
     variant="gold"
@@ -168,7 +160,6 @@ function Contact() {
           </motion.div>
 
           {
-    /* Contact Form */
   }
           <motion.div
     initial={{ opacity: 0, y: 50 }}
@@ -193,7 +184,6 @@ function Contact() {
                 </motion.div> : <form onSubmit={handleSubmit} className="space-y-6">
                   <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
                     {
-    /* Name */
   }
                     <div>
                       <label className="block text-white font-medium mb-2">Name</label>
@@ -209,7 +199,6 @@ function Contact() {
                     </div>
 
                     {
-    /* Email */
   }
                     <div>
                       <label className="block text-white font-medium mb-2">Email</label>
@@ -226,7 +215,6 @@ function Contact() {
                   </div>
 
                   {
-    /* Subject */
   }
                   <div>
                     <label className="block text-white font-medium mb-2">Subject</label>
@@ -242,7 +230,6 @@ function Contact() {
                   </div>
 
                   {
-    /* Message */
   }
                   <div>
                     <label className="block text-white font-medium mb-2">Message</label>
@@ -258,7 +245,6 @@ function Contact() {
                   </div>
 
                   {
-    /* Submit Button */
   }
                   <PremiumButton
     variant="gold"

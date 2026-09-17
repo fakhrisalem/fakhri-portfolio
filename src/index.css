@@ -49,7 +49,6 @@
 
 :root {
   color-scheme: dark;
-  /* Luxury Dark Theme Colors */
   --background: #000000;
   --background-secondary: #0f172a;
   --foreground: #ffffff;
@@ -58,34 +57,28 @@
   --gold-light: #e8c547;
   --gold-dark: #aa8c23;
   
-  /* Card and UI Elements */
   --card: rgba(15, 23, 42, 0.4);
   --card-border: rgba(212, 175, 55, 0.2);
   --card-foreground: #ffffff;
   --popover: rgba(15, 23, 42, 0.8);
   --popover-foreground: #ffffff;
   
-  /* Primary Colors */
   --primary: #D4AF37;
   --primary-foreground: #000000;
   --secondary: #1a1a1a;
   --secondary-foreground: #D4AF37;
   
-  /* Muted Colors */
   --muted: #1a1a1a;
   --muted-foreground: #a1a1a1;
   
-  /* Accent - Gold */
   --accent: #D4AF37;
   --accent-foreground: #000000;
   
-  /* Borders and Input */
   --destructive: #ef4444;
   --border: rgba(212, 175, 55, 0.1);
   --input: rgba(212, 175, 55, 0.05);
   --ring: #D4AF37;
   
-  /* Chart Colors */
   --chart-1: #D4AF37;
   --chart-2: #e8c547;
   --chart-3: #aa8c23;
@@ -94,7 +87,6 @@
   
   --radius: 0.625rem;
   
-  /* Sidebar */
   --sidebar: rgba(15, 23, 42, 0.5);
   --sidebar-foreground: #ffffff;
   --sidebar-primary: #D4AF37;
@@ -203,7 +195,6 @@
   }
 }
 
-/* Luxury Theme Specific Styles */
 @layer components {
   .luxury-gradient {
     background: linear-gradient(135deg, #000000 0%, #0f172a 100%);
@@ -274,7 +265,6 @@
   }
 }
 
-/* Responsive polish across the portfolio */
 @media (max-width: 767px) {
   html,
   body {
@@ -349,7 +339,6 @@
   }
 }
 
-/* Hero photo orbit: floating glass frames */
 .hero-photo-orbit {
   position: absolute;
   inset: 0;
@@ -497,7 +486,6 @@
   }
 }
 
-/* Creative multi-color Hero actions */
 .hero-cta {
   isolation: isolate;
   min-width: 0;
@@ -572,7 +560,6 @@
   }
 }
 
-/* Distinctive Hero typography */
 .hero-specialization {
   font-family: "Playfair Display", Georgia, serif;
   font-size: clamp(1rem, 2vw, 1.35rem);
@@ -631,7 +618,6 @@
 }
 
 
-/* About interactive parallax layer */
 .about-parallax {
   --about-ease: cubic-bezier(.2,.8,.2,1);
   isolation: isolate;
@@ -680,7 +666,6 @@
 }
 
 
-/* Final About orbit composition */
 .about-orbit-section { isolation:isolate; overflow:hidden; min-height:920px; background:radial-gradient(circle at 50% 46%,rgba(26,35,66,.45),transparent 42%),#000; }
 .about-orbit-glow { position:absolute; width:38rem; height:38rem; left:30%; top:12%; border-radius:50%; background:radial-gradient(circle,rgba(115,87,198,.2),rgba(58,170,170,.08) 38%,transparent 68%); filter:blur(20px); pointer-events:none; transition:transform .12s linear; }
 .about-orbit-ring { position:absolute; width:70%; height:430px; left:15%; top:265px; border:1px solid rgba(210,175,55,.25); border-radius:50%; transform:rotate(-9deg); pointer-events:none; transition:transform .12s linear; }
@@ -693,7 +678,6 @@
 @media(max-width:1023px){.about-orbit-section{min-height:auto}.about-orbit-stage{min-height:1050px}.about-orbit-title,.about-orbit-copy,.about-orbit-objective{left:5%;width:90%}.about-orbit-title{top:55px}.about-orbit-title h2{font-size:60px}.about-orbit-copy{top:180px}.about-orbit-objective{top:440px}.about-orbit-photo{left:5%;top:600px;width:230px}.about-orbit-stat--projects{right:5%;top:620px}.about-orbit-stat--languages{left:5%;bottom:55px}.about-orbit-stat--leetcode{right:5%;bottom:55px}.about-orbit-name{top:890px}.about-orbit-ring{width:90%;left:5%}}
 @media(prefers-reduced-motion:reduce){.about-orbit-glow,.about-orbit-ring,.about-orbit-title,.about-orbit-copy,.about-orbit-objective,.about-orbit-name,.about-orbit-photo,.about-orbit-stat{transition:none!important;transform:none!important}.about-orbit-stat:after{animation:none}}
 
-/* About: switch from the desktop orbit composition to a readable mobile flow */
 @media (max-width: 700px) {
   .about-orbit-section {
     min-height: auto;
@@ -817,7 +801,6 @@
   }
 }
 
-/* Skills: keep tree labels inside their cards on narrow screens */
 @media (max-width: 520px) {
   .skills-forest-section {
     padding-top: 4rem;
@@ -904,7 +887,6 @@
 }
 
 
-/* Organic skills forest */
 .skills-forest-section{isolation:isolate;overflow:hidden;background:radial-gradient(circle at 50% 42%,rgba(34,74,50,.32),transparent 45%),linear-gradient(rgba(255,255,255,.03) 1px,transparent 1px),linear-gradient(90deg,rgba(255,255,255,.03) 1px,transparent 1px);background-size:auto,80px 80px,80px 80px}
 .skills-forest-heading{text-align:center;margin:0 auto 3rem}.skills-forest-heading>span{color:#d4af37;font:10px 'Space Mono';letter-spacing:.2em}.skills-forest-heading h2{font:clamp(3.5rem,7vw,5.6rem) 'DM Serif Display',Georgia,serif;line-height:.95;letter-spacing:-.07em;margin:15px 0;background:linear-gradient(110deg,#f4c2c7,#ad9eff 45%,#76ded0);-webkit-background-clip:text;background-clip:text;color:transparent}.skills-forest-heading h2 em{font-style:italic}.skills-forest-heading p{color:#a5a8b5;font-size:14px}
 .organic-tree-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:2rem}.organic-tree{position:relative;height:455px;overflow:hidden;border:1px solid rgba(255,255,255,.16);border-radius:28px;background:radial-gradient(circle at 50% 70%,color-mix(in srgb,var(--tree-color),transparent 80%),transparent 52%),linear-gradient(145deg,rgba(17,21,34,.88),rgba(5,8,13,.94));box-shadow:0 25px 50px #0009,inset 0 1px #ffffff12;transform-style:preserve-3d;transition:transform .45s cubic-bezier(.2,.8,.2,1),border-color .35s,box-shadow .35s}.organic-tree:hover{transform:translateY(-8px) rotateX(2deg);border-color:var(--tree-color);box-shadow:0 35px 70px #000c,0 0 30px color-mix(in srgb,var(--tree-color),transparent 65%)}.organic-tree__header{position:relative;z-index:4;text-align:center;padding-top:25px}.organic-tree__header h3{color:var(--tree-accent);font:700 20px Inter;margin:0 10px}.organic-tree__header span{display:block;color:#8b8e9c;font:9px 'Space Mono';letter-spacing:.12em;margin-top:7px}.organic-tree__svg{position:absolute;inset:62px 0 0;width:100%;height:380px;overflow:visible}.organic-tree__trunk{fill:none;stroke:#74502d;stroke-width:18;stroke-linecap:round;filter:drop-shadow(0 0 7px #6f4a2866)}.organic-tree__branch{fill:none;stroke:#5f8e4d;stroke-width:6;stroke-linecap:round;filter:drop-shadow(0 0 5px var(--tree-color));animation:branch-breathe 5s ease-in-out infinite}.organic-tree__twig{fill:none;stroke:#78a75c;stroke-width:3;stroke-linecap:round;opacity:.9}.organic-tree__leaf{fill:var(--tree-color);stroke:var(--tree-accent);stroke-width:1;filter:drop-shadow(0 3px 5px #0009);transform-box:fill-box;transform-origin:center;animation:leaf-sway 4s ease-in-out infinite}.organic-tree__leaf:nth-child(2n){animation-delay:-1.5s}.organic-tree__leaf:nth-child(3n){animation-delay:-2.4s}.organic-tree__skill{position:absolute;z-index:9;display:flex;gap:5px;align-items:center;padding:7px 10px;border:0;border-radius:999px;color:#253128;background:linear-gradient(110deg,#f8f4e9,#dff3df);font:700 10px Inter;box-shadow:0 8px 14px #0009;cursor:pointer;transition:box-shadow .3s}.organic-tree__skill b{color:#477143;font:700 9px 'Space Mono'}.organic-tree__skill:hover{box-shadow:0 12px 22px #000c,0 0 16px var(--tree-color)}.organic-tree__base{position:absolute;z-index:6;bottom:32px;left:50%;transform:translateX(-50%);text-align:center;color:#f5e2a5;font:10px 'Space Mono';letter-spacing:.1em;white-space:nowrap}.organic-tree__base strong{display:block;color:#fff;font:17px 'DM Serif Display';letter-spacing:0;margin-bottom:4px}.organic-tree__base small{color:#d4af37;font:9px 'Space Mono';letter-spacing:.1em}.skills-forest-hint{text-align:center;color:#777b8a;font:10px 'Space Mono';letter-spacing:.12em;margin:2.3rem 0}.skills-forest-hint:before{content:'HOVER';color:#d4af37;margin-right:5px}
@@ -913,20 +895,16 @@
 @media(prefers-reduced-motion:reduce){.organic-tree,.organic-tree__branch,.organic-tree__leaf{animation:none;transition:none}.organic-tree:hover{transform:none}}
 
 
-/* Dynamic branch lighting and skill detail modal */
 .organic-tree{background:radial-gradient(circle at var(--light-x) var(--light-y),color-mix(in srgb,var(--tree-color),transparent 72%),transparent 34%),radial-gradient(circle at 50% 75%,color-mix(in srgb,var(--tree-color),transparent 84%),transparent 56%),linear-gradient(145deg,rgba(17,21,34,.94),rgba(5,8,13,.98));transition:background .18s ease,box-shadow .35s ease,border-color .35s ease}.organic-tree:before{content:'';position:absolute;inset:0;pointer-events:none;background:radial-gradient(circle at var(--light-x) var(--light-y),rgba(255,255,255,.2),transparent 15%);mix-blend-mode:screen;opacity:.7}.organic-tree__trunk{filter:drop-shadow(10px 12px 3px rgba(0,0,0,.65)) drop-shadow(0 0 8px color-mix(in srgb,var(--tree-color),transparent 55%))}.organic-tree__branch{filter:drop-shadow(3px 5px 2px rgba(0,0,0,.72)) drop-shadow(0 0 7px color-mix(in srgb,var(--tree-color),transparent 35%));stroke-width:7}.organic-tree__twig{filter:drop-shadow(2px 3px 1px rgba(0,0,0,.65))}.organic-tree__skill{cursor:pointer;box-shadow:0 8px 13px rgba(0,0,0,.62),inset 0 1px rgba(255,255,255,.75);position:absolute;z-index:9}.organic-tree__skill:focus-visible{outline:2px solid #fff;outline-offset:4px}.organic-tree__skill:hover{box-shadow:0 14px 24px rgba(0,0,0,.78),0 0 22px color-mix(in srgb,var(--tree-color),transparent 15%),inset 0 1px #fff}.skill-modal-backdrop{position:fixed;inset:0;z-index:100;display:grid;place-items:center;padding:20px;background:rgba(0,0,0,.72);backdrop-filter:blur(12px)}.skill-modal{position:relative;width:min(560px,100%);padding:36px;border:1px solid color-mix(in srgb,var(--modal-color),white 25%);border-radius:24px;background:radial-gradient(circle at 85% 10%,color-mix(in srgb,var(--modal-color),transparent 76%),transparent 34%),linear-gradient(145deg,#172021,#070a0d 72%);box-shadow:0 35px 80px #000d,0 0 45px color-mix(in srgb,var(--modal-color),transparent 65%),inset 0 1px rgba(255,255,255,.12)}.skill-modal:before{content:'';position:absolute;inset:12px;border:1px solid rgba(255,255,255,.08);border-radius:17px;pointer-events:none}.skill-modal__close{position:absolute;right:18px;top:14px;width:32px;height:32px;border:1px solid rgba(255,255,255,.22);border-radius:50%;color:#fff;background:rgba(255,255,255,.06);font-size:22px;line-height:1;cursor:pointer;z-index:2}.skill-modal__close:hover{background:var(--modal-color);color:#08100a}.skill-modal__eyebrow{color:var(--modal-color);font:10px 'Space Mono';letter-spacing:.14em}.skill-modal h3{font:42px 'DM Serif Display',Georgia,serif;color:#fff;margin:12px 0 18px}.skill-modal__meter{height:7px;border-radius:999px;background:#ffffff18;overflow:hidden;margin-bottom:28px}.skill-modal__meter span{display:block;height:100%;border-radius:inherit;background:linear-gradient(90deg,var(--modal-color),#f0e5aa);box-shadow:0 0 18px var(--modal-color)}.skill-modal__body{display:grid;gap:17px}.skill-modal__body b{display:block;color:#f0dfa0;font:10px 'Space Mono';letter-spacing:.12em;text-transform:uppercase;margin-bottom:5px}.skill-modal__body p{margin:0;color:#cbd1ce;font:14px/1.65 Inter,Arial,sans-serif}.skill-modal__done{margin-top:28px;padding:11px 17px;border:1px solid color-mix(in srgb,var(--modal-color),white 20%);border-radius:999px;color:#f8f5e9;background:linear-gradient(110deg,color-mix(in srgb,var(--modal-color),#07100a 48%),#293227);font:10px 'Space Mono';letter-spacing:.08em;cursor:pointer;box-shadow:0 8px 18px #0007}.skill-modal__done:hover{box-shadow:0 0 24px color-mix(in srgb,var(--modal-color),transparent 35%);transform:translateY(-2px)}@media(max-width:600px){.skill-modal{padding:30px 23px}.skill-modal h3{font-size:34px}.skill-modal__body p{font-size:13px}}
 
 
-/* UX polish for the skills forest */
 .skills-forest-section{position:relative}.skills-fireflies{position:absolute;inset:0;overflow:hidden;pointer-events:none;z-index:0}.skills-fireflies i{position:absolute;width:5px;height:5px;border-radius:50%;background:#d9f6a0;box-shadow:0 0 12px 4px #b8ef7c;animation:firefly-float 8s ease-in-out infinite}.skills-fireflies i:nth-child(1){left:16%;top:30%;animation-delay:-1s}.skills-fireflies i:nth-child(2){left:82%;top:22%;animation-delay:-3.5s}.skills-fireflies i:nth-child(3){left:27%;top:67%;animation-delay:-5s}.skills-fireflies i:nth-child(4){left:74%;top:58%;animation-delay:-6.5s}.skills-fireflies i:nth-child(5){left:53%;top:18%;animation-delay:-2.2s}@keyframes firefly-float{0%,100%{opacity:.12;transform:translate(0,0)}40%{opacity:.9;transform:translate(28px,-20px)}70%{opacity:.35;transform:translate(-18px,16px)}}.organic-tree{z-index:1}.organic-tree__branch{stroke-dasharray:420;stroke-dashoffset:420;animation:grow-branch 1.8s ease-out forwards,branch-breathe 5s ease-in-out 1.8s infinite}.organic-tree__branch:nth-of-type(2){animation-delay:.16s,1.96s}.organic-tree__branch:nth-of-type(3){animation-delay:.32s,2.12s}@keyframes grow-branch{to{stroke-dashoffset:0}}.organic-tree__trunk{stroke-dasharray:500;stroke-dashoffset:500;animation:grow-trunk 1.35s ease-out forwards}@keyframes grow-trunk{to{stroke-dashoffset:0}}.organic-tree__skill--soft{filter:saturate(.86)}.organic-tree__skill--medium{box-shadow:0 8px 13px rgba(0,0,0,.62),0 0 12px color-mix(in srgb,var(--tree-color),transparent 50%),inset 0 1px rgba(255,255,255,.75)}.organic-tree__skill--high{box-shadow:0 8px 13px rgba(0,0,0,.62),0 0 20px color-mix(in srgb,var(--tree-color),transparent 18%),inset 0 1px rgba(255,255,255,.75)}.organic-tree__skill.is-active{outline:2px solid var(--tree-accent);outline-offset:5px;transform:scale(1.08);box-shadow:0 0 25px var(--tree-color),0 15px 25px rgba(0,0,0,.75)}.organic-tree__skill.is-active:after{height:3px;opacity:1;box-shadow:0 0 9px var(--tree-color)}.skill-modal-backdrop{animation:modal-backdrop-in .25s ease-out}@keyframes modal-backdrop-in{from{opacity:0}to{opacity:1}}.skill-modal__meter span{transition:width .9s cubic-bezier(.2,.8,.2,1)}
 @media(max-width:600px){.skill-modal-backdrop{align-items:end;padding:0}.skill-modal{width:100%;max-width:none;border-radius:24px 24px 0 0;padding:28px 22px 30px;animation:sheet-up .35s cubic-bezier(.2,.8,.2,1)}@keyframes sheet-up{from{transform:translateY(100%)}to{transform:translateY(0)}}}
 @media(prefers-reduced-motion:reduce){.skills-fireflies i,.organic-tree__branch,.organic-tree__trunk{animation:none;stroke-dashoffset:0}.skill-modal-backdrop,.skill-modal{animation:none}}
 
 
-/* Tree average level indicator and presentation lighting */
 .organic-tree__title-row{display:flex;align-items:center;justify-content:center;gap:12px}.organic-tree__average{display:inline-flex;align-items:center;padding:4px 8px;border:1px solid color-mix(in srgb,var(--tree-color),white 18%);border-radius:999px;color:#26372a;background:color-mix(in srgb,var(--tree-color),transparent 76%);font:9px 'Space Mono';letter-spacing:.06em;box-shadow:0 0 14px color-mix(in srgb,var(--tree-color),transparent 60%)}.organic-tree__header>span:last-child{display:block}.organic-tree__skill--high b{color:#276f41}.organic-tree__skill--soft b{color:#72884b}
 
 
-/* First-load seedling growth and leaf-bloom sequence */
 .organic-tree__trunk{stroke-dasharray:560;stroke-dashoffset:560;animation:tree-trunk-grow 1.25s cubic-bezier(.2,.8,.2,1) .12s forwards;transform-origin:50% 100%}.organic-tree__branch{stroke-dasharray:430;stroke-dashoffset:430;animation:tree-branch-grow 1.05s cubic-bezier(.2,.8,.2,1) forwards,branch-breathe 5s ease-in-out 2.25s infinite}.organic-tree__branch:nth-of-type(2){animation-delay:.35s,2.6s}.organic-tree__branch:nth-of-type(3){animation-delay:.58s,2.83s}.organic-tree__twig{opacity:0;animation:twig-reveal .5s ease-out 1.7s forwards}.organic-tree__leaf{opacity:0;transform:scale(.08) rotate(-32deg);animation:leaf-bloom .7s cubic-bezier(.2,1.4,.4,1) forwards,leaf-sway 4s ease-in-out 2.45s infinite}.organic-tree__leaf:nth-of-type(1){animation-delay:1.72s,2.45s}.organic-tree__leaf:nth-of-type(2){animation-delay:1.86s,2.59s}.organic-tree__leaf:nth-of-type(3){animation-delay:2s,2.73s}.organic-tree__leaf:nth-of-type(4){animation-delay:2.14s,2.87s}.organic-tree__leaf:nth-of-type(5){animation-delay:2.28s,3.01s}.organic-tree__leaf:nth-of-type(6){animation-delay:2.42s,3.15s}.organic-tree__leaf:nth-of-type(7){animation-delay:2.56s,3.29s}.organic-tree__leaf:nth-of-type(8){animation-delay:2.7s,3.43s}@keyframes tree-trunk-grow{0%{stroke-dashoffset:560;transform:scaleY(.2)}70%{transform:scaleY(1.03)}100%{stroke-dashoffset:0;transform:scaleY(1)}}@keyframes tree-branch-grow{0%{stroke-dashoffset:430;opacity:.1}100%{stroke-dashoffset:0;opacity:1}}@keyframes twig-reveal{to{opacity:.9}}@keyframes leaf-bloom{0%{opacity:0;transform:scale(.08) rotate(-32deg)}65%{opacity:1;transform:scale(1.15) rotate(8deg)}100%{opacity:1;transform:scale(1) rotate(0)}}
 @media(prefers-reduced-motion:reduce){.organic-tree__trunk,.organic-tree__branch,.organic-tree__twig,.organic-tree__leaf{animation:none;opacity:1;stroke-dashoffset:0;transform:none}}

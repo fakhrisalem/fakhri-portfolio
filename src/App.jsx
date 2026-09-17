@@ -20,16 +20,12 @@ function App() {
 
   return (
     <main className="relative w-full bg-black overflow-hidden">
-      {/* Welcome / Splash Screen */}
       <WelcomeScreen show={!entered} onEnter={() => setEntered(true)} />
 
-      {/* Floating Particles Background */}
       <FloatingParticles />
 
-      {/* Navigation */}
       <Navigation />
 
-      {/* Main Content */}
       <div className="relative z-10">
         <Hero />
         <About />
@@ -44,7 +40,6 @@ function App() {
         <Footer />
       </div>
 
-      {/* Back to Top Button */}
       <BackToTop />
     </main>
   )

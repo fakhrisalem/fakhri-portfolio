@@ -59,9 +59,6 @@ function Navigation() {
   >
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex justify-between items-center h-20">
-          {
-    /* Logo */
-  }
           <motion.div
     whileHover={{ scale: 1.05 }}
     className="flex items-center gap-3 text-2xl font-bold"
@@ -79,9 +76,6 @@ function Navigation() {
             </a>
           </motion.div>
 
-          {
-    /* Desktop Navigation */
-  }
           <div className="hidden md:flex items-center gap-8">
             {navItems.map((item) => <motion.a
     key={item.href}
@@ -94,9 +88,6 @@ function Navigation() {
               </motion.a>)}
           </div>
 
-          {
-    /* Mobile menu button */
-  }
           <div className="md:hidden">
             <motion.button
     whileTap={{ scale: 0.9 }}
@@ -108,9 +99,6 @@ function Navigation() {
           </div>
         </div>
 
-        {
-    /* Mobile Navigation */
-  }
         <motion.div
     initial={{ opacity: 0, height: 0 }}
     animate={{

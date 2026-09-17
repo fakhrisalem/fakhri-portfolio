@@ -17,16 +17,13 @@ function Hero() {
       id="hero"
       className="min-h-screen flex items-center justify-center relative pt-20 overflow-hidden"
     >
-      {/* Background */}
       <div className="absolute inset-0 bg-gradient-to-b from-black via-[#0a0e27] to-black z-0" />
 
-      {/* 3D Photo Background */}
       <EgyptianPyramid3D />
 
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 w-full relative z-10">
         <div className="flex flex-col items-center justify-center text-center space-y-6">
 
-          {/* Name — 3D Playfair Display, appears first */}
           <motion.div
             initial={{ opacity: 0, y: 40, rotateX: 25 }}
             animate={{ opacity: 1, y: 0, rotateX: 0 }}
@@ -54,7 +51,6 @@ function Hero() {
             </motion.h1>
           </motion.div>
 
-          {/* Specialization — typing effect, appears second */}
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
@@ -64,7 +60,6 @@ function Hero() {
             <TypingTitle />
           </motion.div>
 
-          {/* Location & Education */}
           <motion.div
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
@@ -82,7 +77,6 @@ function Hero() {
             </span>
           </motion.div>
 
-          {/* Trained at */}
           <motion.div
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
@@ -97,14 +91,12 @@ function Hero() {
             ))}
           </motion.div>
 
-          {/* CTA Buttons */}
           <motion.div
             initial={{ opacity: 0, y: 30 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, delay: 2.8 }}
             className="flex w-full max-w-[560px] flex-col sm:flex-row items-stretch justify-center gap-4 pt-8"
           >
-            {/* Explore My Work */}
             <motion.button
               onClick={() => scrollToSection("projects")}
               whileHover={{ scale: 1.07, boxShadow: "0 0 32px rgba(212,175,55,0.55)" }}
@@ -124,7 +116,6 @@ function Hero() {
               <span className="relative z-10">Explore My Work</span>
             </motion.button>
 
-            {/* Get in Touch */}
             <motion.button
               onClick={() => scrollToSection("contact")}
               whileHover={{ scale: 1.07, boxShadow: "0 0 28px rgba(212,175,55,0.3)" }}
@@ -142,7 +133,6 @@ function Hero() {
 
         </div>
 
-        {/* Scroll Indicator */}
         <motion.div
           animate={{ y: [0, 10, 0] }}
           transition={{ duration: 2, repeat: Infinity }}
@@ -155,7 +145,6 @@ function Hero() {
   );
 }
 
-/* Typing animation for the specialization line */
 function TypingTitle() {
   const fullText = "Software Engineer | Full Stack Developer";
   const [displayed, setDisplayed] = useState("");
