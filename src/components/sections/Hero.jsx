@@ -1,7 +1,7 @@
 "use client";
 import { useEffect, useState } from "react";
 import { motion } from "framer-motion";
-import { Code2, Heart, Mail, Send, ArrowDown, Briefcase, MessageCircle } from "lucide-react";
+import { ArrowDown, Briefcase, GraduationCap, MapPin, MessageCircle } from "lucide-react";
 import { EgyptianPyramid3D } from "@/components/common/EgyptianPyramid3D";
 
 function Hero() {
@@ -69,15 +69,15 @@ function Hero() {
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             transition={{ duration: 0.8, delay: 2.2 }}
-            className="flex flex-col md:flex-row items-center justify-center gap-4 text-foreground-muted text-lg"
+            className="hero-meta-text flex flex-col md:flex-row items-center justify-center gap-4 text-foreground-muted text-lg"
           >
             <span className="flex items-center gap-2">
-              <span>📚</span>
+              <GraduationCap size={18} className="text-[#D4AF37]" />
               Cairo University - Computer Science
             </span>
             <span className="hidden md:inline">|</span>
             <span className="flex items-center gap-2">
-              <span>📍</span>
+              <MapPin size={18} className="text-[#D4AF37]" />
               Cairo, Egypt
             </span>
           </motion.div>
@@ -89,9 +89,9 @@ function Hero() {
             transition={{ duration: 0.8, delay: 2.5 }}
             className="flex flex-wrap items-center justify-center gap-4 pt-2"
           >
-            <span className="text-foreground-muted text-sm">Trained at:</span>
+            <span className="hero-training-label text-foreground-muted text-sm">Trained at:</span>
             {["ITI", "NTI", "Digilians"].map((company) => (
-              <span key={company} className="text-white text-sm font-medium">
+              <span key={company} className="hero-training-company text-white text-sm font-medium">
                 {company}
               </span>
             ))}
@@ -109,14 +109,7 @@ function Hero() {
               onClick={() => scrollToSection("projects")}
               whileHover={{ scale: 1.07, boxShadow: "0 0 32px rgba(212,175,55,0.55)" }}
               whileTap={{ scale: 0.96 }}
-              className="group relative flex w-full sm:w-auto items-center justify-center gap-3 px-6 py-4 sm:px-8 rounded-xl font-bold text-sm sm:text-base overflow-hidden"
-              style={{
-                background: "linear-gradient(135deg, #D4AF37 0%, #F4D35E 50%, #D4AF37 100%)",
-                color: "#0a0a0a",
-                border: "none",
-                cursor: "pointer",
-                minWidth: 0,
-              }}
+              className="hero-cta hero-cta--primary group relative flex w-full sm:w-auto items-center justify-center gap-3 px-6 py-4 sm:px-8 rounded-xl font-bold text-sm sm:text-base overflow-hidden"
             >
               <motion.span
                 className="absolute inset-0 opacity-0 group-hover:opacity-100"
@@ -136,15 +129,7 @@ function Hero() {
               onClick={() => scrollToSection("contact")}
               whileHover={{ scale: 1.07, boxShadow: "0 0 28px rgba(212,175,55,0.3)" }}
               whileTap={{ scale: 0.96 }}
-              className="group relative flex w-full sm:w-auto items-center justify-center gap-3 px-6 py-4 sm:px-8 rounded-xl font-bold text-sm sm:text-base overflow-hidden"
-              style={{
-                background: "transparent",
-                color: "#D4AF37",
-                border: "2px solid rgba(212,175,55,0.6)",
-                cursor: "pointer",
-                minWidth: 0,
-                backdropFilter: "blur(8px)",
-              }}
+              className="hero-cta hero-cta--secondary group relative flex w-full sm:w-auto items-center justify-center gap-3 px-6 py-4 sm:px-8 rounded-xl font-bold text-sm sm:text-base overflow-hidden"
             >
               <motion.span
                 className="absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-300"
@@ -155,36 +140,6 @@ function Hero() {
             </motion.button>
           </motion.div>
 
-          {/* Social Links */}
-          <motion.div
-            initial={{ opacity: 0 }}
-            animate={{ opacity: 1 }}
-            transition={{ duration: 0.8, delay: 3.1 }}
-            className="flex flex-wrap items-center justify-center gap-3 sm:gap-4 pt-4"
-          >
-            {[
-              { icon: Code2,  href: "https://github.com/fakhrisalem",          label: "GitHub"    },
-              { icon: Heart,  href: "https://www.linkedin.com/in/monafakhri",    label: "LinkedIn"  },
-              { icon: Mail,   href: "mailto:monafakhri50@gmail.com",  label: "Email"     },
-              { icon: Send,   href: "https://wa.me/201154926990",      label: "WhatsApp"  },
-            ].map((social) => {
-              const Icon = social.icon;
-              return (
-                <motion.a
-                  key={social.label}
-                  href={social.href}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  whileHover={{ scale: 1.2, y: -3 }}
-                  whileTap={{ scale: 0.9 }}
-                  className="p-3 rounded-lg bg-[rgba(212,175,55,0.1)] text-[#D4AF37] hover:bg-[rgba(212,175,55,0.2)] transition-colors"
-                  aria-label={social.label}
-                >
-                  <Icon size={22} />
-                </motion.a>
-              );
-            })}
-          </motion.div>
         </div>
 
         {/* Scroll Indicator */}
@@ -219,7 +174,7 @@ function TypingTitle() {
   }, []);
 
   return (
-    <div className="text-[#D4AF37] text-lg md:text-xl font-semibold tracking-widest uppercase min-h-[2rem]">
+    <div className="hero-specialization text-[#D4AF37] text-lg md:text-xl font-semibold tracking-widest uppercase min-h-[2rem]">
       {displayed}
       {displayed.length < fullText.length && (
         <motion.span

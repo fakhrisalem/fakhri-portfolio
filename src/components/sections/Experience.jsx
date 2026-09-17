@@ -99,16 +99,16 @@ function Experience() {
     initial="hidden"
     whileInView="visible"
     viewport={{ once: true }}
-    className="relative max-w-6xl mx-auto"
+    className="experience-timeline relative max-w-6xl mx-auto"
   >
-          <div className="absolute left-1/2 top-0 bottom-0 w-[3px] -translate-x-1/2 rounded-full bg-gradient-to-b from-[#f9d976] via-[#d4af37] to-[#7a5b00] shadow-[0_0_24px_rgba(212,175,55,0.7)]" />
+          <div className="experience-timeline-line absolute left-1/2 top-0 bottom-0 w-[3px] -translate-x-1/2 rounded-full bg-gradient-to-b from-[#f9d976] via-[#d4af37] to-[#7a5b00] shadow-[0_0_24px_rgba(212,175,55,0.7)]" />
 
           {experienceData.map((exp, index) => {
     const isLeft = index % 2 === 0;
     return <motion.div
       key={index}
       variants={staggerItem}
-      className="relative mb-16 last:mb-0"
+      className="experience-timeline-item relative mb-16 last:mb-0"
     >
               <div className="hidden md:flex absolute left-1/2 top-1/2 z-10 -translate-x-1/2 -translate-y-1/2 items-center justify-center w-14 h-14 rounded-full border-2 border-[#D4AF37] bg-[rgba(212,175,55,0.2)] shadow-[0_0_20px_rgba(212,175,55,0.45)]">
                 <Briefcase size={18} className="text-[#D4AF37]" />
@@ -116,7 +116,7 @@ function Experience() {
 
               <div className={`md:flex ${isLeft ? "justify-start" : "justify-end"}`}>
                 <div className="w-full md:w-[46%]">
-                  <GlassCard className={`p-5 sm:p-6 md:p-8 border border-[rgba(212,175,55,0.18)] bg-[linear-gradient(135deg,rgba(15,23,42,0.85),rgba(20,27,45,0.75))] shadow-[0_20px_50px_rgba(15,23,42,0.45)] rounded-3xl ${isLeft ? "md:mr-8" : "md:ml-8"}`}>
+                  <GlassCard className={`experience-card p-5 sm:p-6 md:p-8 border border-[rgba(212,175,55,0.18)] bg-[linear-gradient(135deg,rgba(15,23,42,0.85),rgba(20,27,45,0.75))] shadow-[0_20px_50px_rgba(15,23,42,0.45)] rounded-3xl ${isLeft ? "md:mr-8" : "md:ml-8"}`}>
                     <div className="flex flex-col gap-4 mb-5">
                       <div>
                         <h3 className="text-xl sm:text-2xl font-bold text-white">{exp.role}</h3>
@@ -151,3 +151,4 @@ function Experience() {
 export {
   Experience
 };
+
