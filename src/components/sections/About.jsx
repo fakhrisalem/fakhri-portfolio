@@ -44,7 +44,7 @@ function About() {
           <p>My projects include a full-stack HR platform, backend services, Python automation tools, C++ systems, data analysis notebooks, and responsive React applications. I apply data structures, algorithms, object-oriented programming, SOLID principles, unit testing, Git, Docker, and Agile practices to practical software projects.</p>
         </motion.div>
         <motion.div className="about-orbit-objective" initial={{ opacity: 0 }} whileInView={{ opacity: 1 }} viewport={{ once: true }} style={depth(3, 2)}><b>CAREER OBJECTIVE</b><p>To contribute as a Software Engineering Intern in a collaborative environment where I can apply my foundations in algorithms, programming, backend and frontend development, testing, and software design while continuing to grow as a well-rounded engineer.</p></motion.div>
-        <motion.div className="about-orbit-photo" style={depth(14, 10)} whileHover={{ rotateY: -8, rotateX: 5, scale: 1.05 }}><img src="profile.jpg" alt="Mona Fakhri" /><div className="about-photo-meta"><span>PROFILE / 01</span><strong>Mona Fakhri</strong><small>Personal Photo · 2026</small></div><i>MONA / 2026</i></motion.div>
+        <motion.div className="about-orbit-photo" style={depth(14, 10)} whileHover={{ rotateY: -8, rotateX: 5, scale: 1.05 }}><img src={`${import.meta.env.BASE_URL}MF.jpeg`} alt="Mona Fakhri" /><div className="about-photo-meta"><span>PROFILE / 01</span><strong>Mona Fakhri</strong><small>Personal Photo · 2026</small></div><i>MONA / 2026</i></motion.div>
         {stats.map((stat, index) => <motion.div key={stat.label} className={`about-orbit-stat ${stat.className}`} style={depth(10 + index * 3, 7 + index * 2)} whileHover={{ rotateX: 8, rotateY: -10, y: -10, scale: 1.08 }}><AnimatedCounter end={stat.number} suffix="+" className="about-orbit-number" /><span>{stat.label}</span></motion.div>)}
         <div className="about-orbit-name" style={depth(5, 3)}>MONA FAKHRI · 2026</div>
       </div>
@@ -53,5 +53,3 @@ function About() {
   </section>;
 }
 export { About };
-
-

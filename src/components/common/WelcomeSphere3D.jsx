@@ -2,6 +2,7 @@
 import { useEffect, useRef, useState } from "react";
 
 const photos = [
+  { src: "MF.jpeg", alt: "Mona Fakhri" },
   { src: "image/CAI.webp", alt: "Cairo University" },
   { src: "image/PY.webp", alt: "Pyramids of Giza" },
   { src: "image/google.png", alt: "Google" },
@@ -16,23 +17,34 @@ const photos = [
   { src: "image/8.jpg", alt: "City" },
 ];
 
-function fibonacciSphere(samples) {
+function ringSphere(samples) {
   const points = [];
-  const offset = 2 / samples;
-  const increment = Math.PI * (3 - Math.sqrt(5));
-  for (let i = 0; i < samples; i++) {
-    const y = i * offset - 1 + offset / 2;
-    const r = Math.sqrt(Math.max(0, 1 - y * y));
-    const phi = i * increment;
-    const x = Math.cos(phi) * r;
-    const z = Math.sin(phi) * r;
-    points.push({ x, y, z });
-  }
+  const outerRingCount = Math.floor(samples / 3);
+  const ringCounts = [
+    outerRingCount,
+    samples - outerRingCount * 2,
+    outerRingCount,
+  ];
+  const latitudes = [Math.PI * 0.29, Math.PI / 2, Math.PI * 0.71];
+
+  ringCounts.forEach((count, ringIndex) => {
+    const latitude = latitudes[ringIndex];
+    const phase = ringIndex % 2 === 0 ? 0 : Math.PI / count;
+
+    for (let index = 0; index < count; index++) {
+      const longitude = (index / count) * Math.PI * 2 + phase;
+      points.push({
+        x: Math.sin(latitude) * Math.sin(longitude),
+        y: Math.cos(latitude),
+        z: Math.sin(latitude) * Math.cos(longitude),
+      });
+    }
+  });
+
   return points;
 }
 
-const RADIUS = 240;
-const points = fibonacciSphere(photos.length);
+const points = ringSphere(photos.length);
 
 export function WelcomeSphere3D({ size = 560 }) {
   const [rotY, setRotY] = useState(0);
@@ -43,12 +55,19 @@ export function WelcomeSphere3D({ size = 560 }) {
   const velocity = useRef({ x: 0.12, y: 0 });
   const frame = useRef();
 
+  const radius = responsiveSize * 0.35;
+  const cardWidth = responsiveSize * 0.225;
+  const cardHeight = cardWidth * 0.72;
+
   useEffect(() => {
     const updateSize = () => {
       const width = window.innerWidth;
-      if (width < 480) setResponsiveSize(Math.min(size, 220));
-      else if (width < 768) setResponsiveSize(Math.min(size, 300));
-      else setResponsiveSize(Math.min(size, 420));
+      if (width < 360) setResponsiveSize(Math.min(size, 150));
+      else if (width < 480) setResponsiveSize(Math.min(size, 190));
+      else if (width < 640) setResponsiveSize(Math.min(size, 260));
+      else if (width < 768) setResponsiveSize(Math.min(size, 320));
+      else if (width < 1024) setResponsiveSize(Math.min(size, 400));
+      else setResponsiveSize(Math.min(size, 520));
     };
 
     updateSize();
@@ -81,7 +100,7 @@ export function WelcomeSphere3D({ size = 560 }) {
   };
   const endDrag = () => {
     dragging.current = false;
-  };
+  }
 
   return (
     <div
@@ -118,16 +137,16 @@ export function WelcomeSphere3D({ size = 560 }) {
                 position: "absolute",
                 top: "50%",
                 left: "50%",
-                width: 108,
-                height: 78,
-                marginLeft: -54,
-                marginTop: -39,
-                transform: `rotateY(${thetaY}deg) rotateX(${thetaX}deg) translateZ(${RADIUS}px)`,
+                width: cardWidth,
+                height: cardHeight,
+                marginLeft: -cardWidth / 2,
+                marginTop: -cardHeight / 2,
+                transform: `rotateY(${thetaY}deg) rotateX(${thetaX}deg) translateZ(${radius}px)`,
                 transformStyle: "preserve-3d",
               }}
             >
               <img
-                src={photo.src}
+                src={`${import.meta.env.BASE_URL}${photo.src}`}
                 alt={photo.alt}
                 draggable={false}
                 style={{
